@@ -49,7 +49,7 @@ function SignupFormPage() {
                     <div className="right-col"></div>
                 </header>
                 <div className="p-refreshed_page">
-                    <h1 className="p-refreshed_page__heading">First, enter your email and password</h1>
+                    <h1 className="p-refreshed_page__heading">Enter your email and password</h1>
                     <div className="p-refreshed_page__sub_heading">
                         We suggest using the <strong>email address you use at work.</strong>
                     </div>
