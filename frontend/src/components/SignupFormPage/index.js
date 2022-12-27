@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import { Link } from "react-router-dom";
+import slackLogo from '../LoginFormPage/slack-logo.png'
+import './Signup.css';
 
 function SignupFormPage() {
     const dispatch = useDispatch();
@@ -36,48 +39,72 @@ function SignupFormPage() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map(error => <li key={error}>{error}</li>)}
-            </ul>
-            <label>
-                Email
-                <input
-                    type="text"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Username
-                <input
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Password
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Confirm Password
-                <input
-                    type="password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    required
-                />
-            </label>
-            <button type="submit">Sign Up</button>
-        </form>
+        <body className="full_height get_started">
+            <div className="get_started_app_root">
+                <header className="p-refreshed_page__header">
+                    <div className="left-col"></div>
+                    <div className="center-col">
+                        <Link><img src={slackLogo} height= "75"></img></Link>
+                    </div>
+                    <div className="right-col"></div>
+                </header>
+                <div className="p-refreshed_page">
+                    <h1 className="p-refreshed_page__heading">First, enter your email and password</h1>
+                    <div className="p-refreshed_page__sub_heading">
+                        We suggest using the <strong>email address you use at work.</strong>
+                    </div>
+                    <form onSubmit={handleSubmit}>
+                        <ul>
+                            {errors.map(error => <li key={error}>{error}</li>)}
+                        </ul>
+                        
+                            <input
+                                type="text"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                                placeholder="Email"
+                            />
+                        
+                        
+                            <input
+                                type="text"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                required
+                                placeholder="Username"
+                            />
+                
+               
+                            <input
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                                placeholder="Password"
+                            />
+                
+            
+                            <input
+                                type="password"
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                required
+                                placeholder="Confirm Password"
+                            />
+        
+                        <button type="submit">Sign Up</button>
+                        <div className="p-creator_signup_form__sign_in_existing_workspaces">
+                            <div className="p-creator_signup_form__sign_in_existing_workspaces">
+                                Already using Khakis?
+                                <Link to="/login">Sign in to an existing workplace</Link>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            </body>
     );
 }
 

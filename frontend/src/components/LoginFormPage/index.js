@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import './LoginForm.css';
+import slackLogo from './slack-logo.png'
+
 
 function LoginFormPage() {
     const dispatch = useDispatch();
@@ -34,30 +37,65 @@ function LoginFormPage() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map(error => <li key={error}>{error}</li>)}
-            </ul>
-            <label>
-                Username or Email
-                <input
-                    type="text"
-                    value={credential}
-                    onChange={(e) => setCredential(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Password
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-            </label>
-            <button type="submit">Log In</button>
-        </form>
+        
+        <>
+        <body>
+                <div className='get-started-app-root'>
+                    <header className='p-refreshed_page__header'>
+                        <div className='left-col'></div>
+                        <div className='center-col'>
+                            <a>
+                                <img alt='Slack' height="75" src={slackLogo}></img>
+                            </a>
+                        </div>
+                        <div className='right-col'>
+                            <div className='p-refreshed_page__header_sidelink'>
+                                New to Slack?
+                            </div>
+                            <br></br>
+            
+                            <Link to="/signup" className='c-link bold'>Create an account</Link>
+                            
+                        </div>
+                    </header>
+                    <div className='p-refreshed_page'>
+                        <h1 className='p-refreshed_page__heading'>Sign in to Khakis</h1>
+                        <div className='p-refreshed_page__sub_heading'>
+                            We suggest using the <strong>email address you use at work</strong>
+                        </div>
+                        <div className='p-get_started_signin'>
+                            <div className="p-refreshed_page">
+                            <form onSubmit={handleSubmit}>
+                                <ul>
+                                    {errors.map(error => <li key={error}>{error}</li>)}
+                                </ul>
+                                <div class="p-get_started_email_form">
+                                
+                                    
+                                    <input
+                                        type="text"
+                                        placeholder='name@name.com'
+                                        value={credential}
+                                        onChange={(e) => setCredential(e.target.value)}
+                                        required
+                                    />
+                                    
+                                    <input
+                                        type="password"
+                                        placeholder='password'
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        required
+                                    />
+                                <button type="submit">Sign In With Email</button>
+                            </div>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </body>
+        </>
     );
 }
 
