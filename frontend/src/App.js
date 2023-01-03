@@ -3,11 +3,13 @@ import { Route, Switch } from 'react-router-dom';
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
+import Workplace from "./components/Workplace"
+import NotFoundPage from "./components/NotFoundPage"
 
 function App() {
   return (
     <>
-      {/* <Navigation /> */}
+      <Navigation />
       <Switch>
         <Route path="/login">
           <LoginFormPage />
@@ -15,6 +17,10 @@ function App() {
         <Route path="/signup">
           <SignupFormPage />
         </Route>
+        <Route path="/workplace">
+            <Workplace />
+        </Route>
+        <Route path="*" component={NotFoundPage} />
       </Switch>
     </>
   );

@@ -7,6 +7,7 @@ import App from './App';
 import configureStore from './store';
 import csrfFetch from './store/csrf';
 import * as sessionActions from './store/session';
+import * as workplaceActions from './store/workplace';
 
 
 const store = configureStore();
@@ -15,6 +16,8 @@ if (process.env.NODE_ENV !== 'production') {
   window.store = store;
   window.csrfFetch = csrfFetch;
   window.sessionActions = sessionActions;
+  window.workplaceActions = workplaceActions
+
 
 }
 
@@ -56,6 +59,7 @@ if (
   sessionStorage.getItem("X-CSRF-Token") === null
 ) {
   store.dispatch(sessionActions.restoreSession()).then(renderApplication);
+  store.dispatch(workplaceActions.fetchWorkplaces()).then(renderApplication)
 } else {
   renderApplication();
 }

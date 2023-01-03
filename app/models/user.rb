@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  email           :string           not null
+#  username        :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
 class User < ApplicationRecord
   has_secure_password
 
@@ -24,6 +36,17 @@ class User < ApplicationRecord
     self.update!(session_token: generate_unique_session_token)
     self.session_token
   end
+
+    has_many :workplaces,
+    foreign_key: :admin_id,
+    class_name: :Workplace,
+    dependent: :destroy,
+    inverse_of: :admin
+
+    has_many :workplace_subscriptions,
+    foreign_key: :user_id,
+    class_name: :WorkplaceSubscription,
+    dependent: :destroy
 
   private
 

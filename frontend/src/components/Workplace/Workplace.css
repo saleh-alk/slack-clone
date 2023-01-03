@@ -1,0 +1,197 @@
+body {
+    font-family: Slack-Lato, Slack-Fractions, appleLogo, sans-serif;
+    font-size: 15px;
+    line-height: 1.46668;
+    font-weight: initial;
+    color: #1d1c1d;
+    font-variant-ligatures: common-ligatures;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+div{
+    display: block;
+}
+
+section {
+    display: block;
+    margin-left: 300px;
+}
+
+h4 {
+    font-size: 15px;
+    line-height: 1.46668;
+    font-weight: initial;
+    margin-left: 20px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    clear: both;
+    margin-bottom: 16px;
+}
+
+
+.full_height {
+    height: 100%;
+}
+
+.get-started-app-root {
+    align-items: center;
+    background-color: rgba(var(--sk_primary_background, 255, 255, 255), 1);
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.p-refreshed_page__header {
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 48px 0 40px;
+    width: 100%;
+}
+
+.p-refreshed_page {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+    max-width: 800%;
+    width: 100%;
+}
+
+.p-workspaces_view__heading {
+    font-size: 32px;
+    letter-spacing: -.25px;
+    line-height: 38px;
+    margin-bottom: 0;
+}
+
+.p-refreshed_page__heading {
+    font-family: Slack-Larsseit, Helvetica Neue, Helvetica, Segoe UI, Tahoma, Arial, sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: -.75px;
+    line-height: 46px;
+    margin-bottom: 10px;
+    max-width: 700px;
+    text-align: center;
+}
+
+.p-workspaces_view__heading--aubergine {
+    color: #4a154b;
+}
+
+.p-workspaces_view__subheading {
+    color: rgba(var(--sk_foreground_max_solid, 97, 96, 97), 1);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.46668;
+    line-height: 22px;
+}
+
+.p-workspaces_view__container {
+    max-width: unset;
+    padding: 0 12px;
+    width: 100%;
+}
+
+.p-workspaces_view__container {
+    max-width: unset;
+    padding: 0 12px;
+    width: 100%;
+}
+
+
+.p-workspaces_list__panel {
+    --saf-0: rgba(var(--sk_foreground_low_solid, 221, 221, 221), 1);
+    border: 1px solid var(--saf-0);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px #0000001a;
+    width: 800px;
+}
+
+
+.p-workspaces_list__workspaces_list_divider {
+    height: 0;
+    margin: 0 0 0 24px;
+}
+
+.p-workspaces_list__link {
+    color: inherit;
+    display: block;
+    padding: 15px 24px 20px;
+}
+
+.p-workspace_info__icon {
+    margin-right: 13px;
+    margin-top: 5px;
+}
+
+.p-workspace_info__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-width: 100px;
+}
+
+.p-workspace_info__title {
+    font-size: 14px;
+    font-weight: 600;
+    height: 27px;
+    line-height: 27px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: 20px;
+
+
+}
+
+ .p-workspace_info__action {
+    padding-right: 24px;
+    transition: padding-right .2s;
+}
+
+.p-workspace_info__action {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.p-workspaces_list__link {
+    color: inherit;
+    display: block;
+    padding: 15px 24px 20px;
+}
+
+.p-workspaces_list__link_icon_text {
+    display: none;
+    font-size: 18px;
+    line-height: 18px;
+    margin-top: -2px;
+}
+
+.c-icon {
+    align-items: center;
+    display: inline-flex;
+    height: 20px;
+    justify-content: center;
+    position: relative;
+    width: 20px;
+}
+
+
+
+
+
+
+

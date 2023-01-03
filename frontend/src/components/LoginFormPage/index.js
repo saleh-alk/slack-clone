@@ -14,9 +14,8 @@ function LoginFormPage() {
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
 
-    console.log('within login')
 
-    if (sessionUser) return <Redirect to="/" />;
+    if (sessionUser) return <Redirect to="./workplace" />;
 
     const handleSubmit = (e) => {
         e.preventDefault();
