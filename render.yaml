@@ -1,22 +1,22 @@
 databases:
-  -name: Khakis
-  user: khakis
-  plane: free
-  region: oregon
-
+  - name: khakis
+    user: khakis
+    plan: free
+    region: oregon
 
 services:
-  -type: web
-  name: Khakis
-  region: oregon
-  branch: main
-  env: ruby
-  buildCommand: "./bin/render-build.sh"
-  startCommand: "rails s"
-  envVars:
-    -key: DATABASE_URL
-      fromDatabase:
-        name: Khakis
-        property: connectionString
-    -key: RAILS_MASTER_KEY
-      sync: false
+  - type: web
+    name: khakis
+    plan: free
+    region: oregon
+    branch: main
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "rails s"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: khakis
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
