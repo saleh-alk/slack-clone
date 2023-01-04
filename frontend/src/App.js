@@ -5,6 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import Workplace from "./components/Workplace"
 import NotFoundPage from "./components/NotFoundPage"
+import CreateWorkplace from './components/Messages/createWorkplace';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
         </Route>
         <Route path="/workplace">
             <Workplace />
+        </Route>
+        <Route path="/newWorkplace">
+          <CreateWorkplace />
         </Route>
         <Route path="*" component={NotFoundPage} />
       </Switch>

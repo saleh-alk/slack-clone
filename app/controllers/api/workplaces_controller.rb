@@ -7,7 +7,7 @@ class Api::WorkplacesController < ApplicationController
 
 
     def create
-        @workplace = workplace.new(workplace_params)
+        @workplace = Workplace.new(workplace_params)
         @workplace.admin = current_user
         if @workplace.save
             render :show

@@ -52,11 +52,6 @@ function Workplace() {
     }, [])
 
     
-
-    
-
-  
-    
     return  (
         <>
         {/* <body className='full_height get_started'> */}
@@ -64,7 +59,7 @@ function Workplace() {
         
             <div className='get_started_app_root'>
                 <header className="p-refreshed_page__header">
-                    <div className="left-col"></div>
+                    <div className="left-col"> {console.log(sessionUser)}</div>
                     <div className="center-col">
                         <Link to={"/"}><img src={slackLogo} height="75"></img></Link>
                     </div>
@@ -76,7 +71,7 @@ function Workplace() {
                         <span className='p-workspaces_view__heading--aubergine'>Welcome back! </span>
                     </h1>
                     <div className="p-refreshed_page__sub_heading p-workspaces_view__subheading">
-                        Choose a workspace below to get back to working with your team.
+                        Choose a workspace below to get back to working with your team. {console.log(workplace)}
                     </div>
                 </div>
 
@@ -99,11 +94,12 @@ function Workplace() {
                                     {subscribers ? subscribers.map((subscriber, i) =>
                                         subscriber.userId === sessionUser.id ?
                                           <WorkplaceDetail work={workplace[subscriber.workplaceId]} key={i} /> : console.log("")) : <></>}
-                                     {/* {workplace ? workplace.map((work, i) =>
-                                        <WorkplaceDetail work={work} key={i} />
-                                        ) : <div></div>
-                                        
-                                    } */}
+                                    
+
+                                    {workplace ? workplace.map((work, i) =>
+                                        work.adminId === sessionUser.id ?
+                                            <WorkplaceDetail work={work} key={i} /> : console.log("")) : <></>}
+                    
 
                 
 
@@ -112,6 +108,17 @@ function Workplace() {
                   
                         </div>
                     </section>
+
+                    <div className='p-create_workspace_banner'>
+                        <span className='align_items_center display_flex'>
+                            Want to create a new team?
+                        </span>
+                        <Link to={"/newWorkplace"} className='c-link c-button  c-button--outline p-create_workspace_banner__button c-button--medium'>
+                            Create Another Workspace
+                        </Link>
+                        
+
+                    </div>
                 </div>
 
 

@@ -1,0 +1,165 @@
+blockquote,
+body,
+caption,
+dd,
+dl,
+fieldset,
+figure,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+legend,
+ol,
+p,
+pre,
+table,
+td,
+th,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Slack-Lato, Slack-Fractions, appleLogo, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: rgba(var(--sk_primary_foreground, 29, 28, 29), 1);
+    font-size: 15px;
+    font-variant-ligatures: common-ligatures;
+    font-weight: 400;
+    box-sizing: border-box;
+    width: 100%;
+    display: block;
+}
+
+div{
+    display: block;
+}
+
+
+*,
+:after,
+:before {
+    box-sizing: inherit;
+}
+
+.p-client.p-client--a11y-layout,
+.p-client.p-client--topnav-removed {
+    grid-template-areas:
+        "p-client__workspace"
+        "p-client__banners";
+    grid-template-rows: auto min-content;
+}
+
+.p-client {
+    background: rgba(var(--sk_primary_background, 255, 255, 255), 1);
+    display: grid;
+
+    grid-template-columns: auto;
+    height: 100vh;
+    width: 100vw;
+}
+
+.p-client,
+body,
+html {
+    overflow: hidden;
+}
+
+.p-client--a11y-layout .p-workspace-layout {
+    overflow: visible;
+}
+
+.p-workspace-layout {
+    grid-template-columns: 200px auto;
+    grid-template-rows: 44px auto;
+    grid-template-areas:
+        'p-top_nav p-top_nav'
+        'p-workspace__sidebar p-workspace__primary_view';
+}
+
+.p-workspace-layout {
+    display: grid;
+    position: relative;
+}
+
+.p-client--a11y-layout .p-top_nav {
+    grid-area: p-top_nav;
+}
+
+.p-top_nav {
+    width: 1500px;
+ 
+    background: #350d36;
+    box-shadow: 0 1px 0 0 rgb(255 255 255 / 10%);
+    -webkit-app-region: drag;
+    align-items: center;
+    color: var(--p-channel_sidebar__top-nav-text);
+    display: flex;
+    justify-content: center;
+    min-width: 0;
+    position: relative;
+    z-index: 203;
+}
+
+.p-workspace-layout .p-workspace__sidebar {
+    grid-template-areas: "p-workspace__channel_sidebar";
+    grid-template-rows: auto;
+    overflow: hidden;
+}
+
+.p-workspace__sidebar {
+    
+    display: grid;
+    grid-area: p-workspace__sidebar;
+    grid-template-columns: auto;
+    position: relative;
+}
+
+.hidden,
+.invisible {
+    visibility: hidden;
+}
+
+.hidden {
+    display: none;
+}
+.p-flexpane__preview-mode-overlay {
+    background: #1d1c1d;
+    height: 100%;
+    opacity: .3;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+
+.p-workspace-layout .p-workspace__channel_sidebar {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    min-width: 0;
+}
+
+.p-workspace__channel_sidebar {
+    /* grid-area: p-workspace__channel_sidebar; */
+    grid-row-start: p-workspace__channel_sidebar;
+    grid-column-start: p-workspace__channel_sidebar;
+    grid-row-end: p-workspace__channel_sidebar;
+    grid-column-end: p-workspace__channel_sidebar;
+}
+
+form{
+    display: flex;
+    
+    flex-direction: column;
+    align-items: center;
+    margin-left: 50px ;
+    margin-top: 50px;
+
+}
+
