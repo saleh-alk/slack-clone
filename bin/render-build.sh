@@ -2,7 +2,7 @@
 
 set -o errexit
 
-npm install react-router-dom
+
 npm run build
 bundle install
 rails db:migrate db:seed
