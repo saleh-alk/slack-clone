@@ -49,4 +49,4 @@ module Backend
   end
 end
 
-config.railties_order = [:all, :main_app]
+
