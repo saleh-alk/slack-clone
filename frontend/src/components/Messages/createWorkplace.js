@@ -28,14 +28,14 @@ function CreateWorkplace(){
         return dispatch(workplaceActions.createWorkspace({ name, url, sessionUser }))
             .catch(async (res) => {
                 let data;
-                console.log(res)
+                
                 try {
                     // .clone() essentially allows you to read the response body twice
                     data = await res.clone().json();
-                    console.log(data)
+                    
                 } catch {
                     data = await res.text(); // Will hit this case if the server is down
-                    console.log(data)
+                    
                 }
                 if (data?.errors) setErrors(data.errors);
                 else if (data) setErrors([data]);

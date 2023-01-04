@@ -6,15 +6,15 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 ApplicationRecord.transaction do 
-  puts "Destroying tables..."
+  # puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
   User.destroy_all
   Workplace.destroy_all
-  puts "Resetting primary keys..."
+  # puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
   ApplicationRecord.connection.reset_pk_sequence!('users')
   ApplicationRecord.connection.reset_pk_sequence!('workplaces')
-  puts "Creating users..."
+  
   # Create one user with an easy to remember username, email, and password:
   User.create!(
     username: 'Demo-lition', 
@@ -49,5 +49,5 @@ ApplicationRecord.transaction do
 
 
 
-  puts "Done!"
+ 
 end

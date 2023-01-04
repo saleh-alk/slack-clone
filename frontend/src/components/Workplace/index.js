@@ -59,7 +59,7 @@ function Workplace() {
         
             <div className='get_started_app_root'>
                 <header className="p-refreshed_page__header">
-                    <div className="left-col"> {console.log(sessionUser)}</div>
+                    <div className="left-col"> </div>
                     <div className="center-col">
                         <Link to={"/"}><img src={slackLogo} height="75"></img></Link>
                     </div>
@@ -79,11 +79,7 @@ function Workplace() {
                    <section>
                         <div className='p-workspaces_list__panel'>
                             <div className='p-workspaces_list__panel'>
-                                <h2>{console.log(sessionUser.id)}</h2>
-                                {/* <h2>{console.log(workplace)}</h2> */}
-                                <h2>{subscribers ? subscribers.map((subscriber) => 
-                                subscriber.userId === sessionUser.id ?
-                                console.log(subscriber.workplaceId) : console.log("") ) : <></>}</h2>
+                        
                                 <h4> Workplaces for <strong>{ sessionUser.email}</strong>
                                 </h4>
                                 
