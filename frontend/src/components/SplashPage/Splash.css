@@ -1,0 +1,331 @@
+html {
+    font-family: Slack-Circular-Pro, "Helvetica Neue", Helvetica, "Segoe UI", Tahoma, Arial, sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+picture,
+section,
+summary {
+    display: block;
+}
+
+body {
+    display: block;
+    margin: 8px;
+}
+
+body {
+    margin: 0;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    max-width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Slack-Circular-Pro, "Helvetica Neue", Helvetica, "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #000;
+}
+
+*,
+::after,
+::before {
+    box-sizing: inherit;
+}
+
+.c-button {
+    display: inline-block;
+    white-space: nowrap;
+    flex-basis: auto;
+    width: auto;
+}
+.c-button {
+    font-size: calc(.875rem + (0 * (100vw - 400px)/ 624));
+}
+
+.c-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: 0 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+    font-family: Slack-Circular-Pro, "Helvetica Neue", Helvetica, "Segoe UI", Tahoma, Arial, sans-serif;
+    font-weight: 700;
+    line-height: 1.2857;
+    letter-spacing: .8px;
+    font-size: .875rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 19px 40px 20px;
+    display: block;
+    width: 100%;
+    transition: box-shadow 420ms cubic-bezier(.165, .84, .44, 1), color 420ms cubic-bezier(.165, .84, .44, 1), background 420ms cubic-bezier(.165, .84, .44, 1);
+}
+
+.t-contains-reverse-links .t-default-link,
+.t-default-link,
+a {
+    color: #1264a3;
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 1px solid #1264a3;
+    word-break: break-word;
+}
+
+.c-button.v--primary {
+    background-color: #611f69;
+    color: #fff;
+    fill: #fff;
+}
+
+.is-focusable {
+    display: block;
+    left: -1000em;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.c-skip-link {
+    position: fixed;
+    outline: 0;
+    text-decoration: none;
+}
+
+.u-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    border: 0;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+
+
+.c-nav--primary {
+    padding: 0;
+    height: 80px;
+    background-color: transparent;
+    border-bottom: none;
+    z-index: 1000;
+    top: 0;
+    position: absolute;
+}
+
+.c-nav__row {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.o-content-container {
+    margin: 0 auto;
+    padding: 0 8vw;
+}
+
+.c-slacklogo {
+    padding-right: 2rem;
+    display: flex;
+    align-items: center;
+    width: 125px;
+}
+
+.c-nav--primary .c-nav__list {
+    display: none;
+    position: relative;
+}
+
+.c-nav__list {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.c-nav__list {
+    margin: 0;
+}
+
+.c-nav--signed-out {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    padding-right: 0;
+}
+
+.c-nav {
+    width: 100%;
+    padding: 0;
+    background-color: #611f69;
+}
+
+.c-nav--signed-out__link {
+    color: #fff;
+}
+
+.c-nav--primary .c-nav--signed-out a:not(.c-button) {
+    display: inline-block;
+    border: 1px solid transparent;
+    margin-right: 1rem;
+}
+
+.c-nav--primary .c-nav--signed-out__link {
+    font-weight: 700;
+    font-size: .9375rem;
+    margin-right: 1.875rem rem !important;
+}
+
+.c-billboard {
+    background-color: #541554;
+}
+
+.c-billboard {
+    padding-top: 6rem;
+}
+.c-billboard {
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 5rem;
+    max-width: none;
+    margin: 0 auto;
+    height: 700px;
+}
+
+.c-billboard__content {
+    grid-template-columns: 56% 42%;
+    grid-column-gap: 2%;
+    justify-items: start;
+    display: grid;
+    align-items: center;
+}
+
+.o-content-container {
+    padding: 0 4vw;
+    margin: 0 auto;
+}
+
+.c-billboard__content.v--inverse>:first-child {
+    margin-top: 0;
+}
+
+.c-billboard__content.v--inverse>:first-child {
+    order: 2;
+}
+
+.c-billboard__illustration {
+    min-width: 560px;
+    justify-self: flex-start;
+}
+
+.c-billboard__illustration,
+.c-billboard__media {
+    justify-content: center;
+    display: flex;
+    align-items: flex-start;
+}
+
+.c-billboard__header {
+    z-index: 2;
+}
+
+.c-billboard__header {
+    text-align: left;
+    width: 100%;
+}
+
+.c-billboard__header {
+    margin-right: 0;
+}
+
+.c-billboard .c-billboard__header .o-hero__header__headline--jumbo {
+    margin: 0;
+}
+
+.u-text--reverse {
+    color: #fff !important;
+}
+
+.o-hero__header__headline--jumbo {
+    font-size: calc(2.75rem + (20 * (100vw - 400px)/ 624));
+    font-family: Slack-Larsseit, "Helvetica Neue", Helvetica, "Segoe UI", Tahoma, Arial, sans-serif;
+    font-weight: 700;
+    line-height: 1.0625;
+    letter-spacing: -1.5px;
+    max-width: 14em;
+}
+.u-text--yellow {
+    color: #ecb22e !important;
+}
+
+.c-billboard__header>:last-child {
+    margin-bottom: 0;
+}
+
+.c-cta--signup {
+    width: 100%;
+    overflow: visible;
+}
+
+.c-billboard__header__cta--v-stack-on-small-desktop {
+    display: flex;
+    flex-direction: column;
+}
+
+.c-cta--signup .c-button {
+    margin-top: 0;
+    width: 100%;
+    width: 500px;
+    margin-left: 300px;
+    margin-top: 20px;
+}
+
+.c-button.v--secondary {
+    background-color: #fff;
+    color: #611f69;
+    fill: #611f69;
+    box-shadow: inset 0 0 0 1px #611f69;
+}
+
+.c-button {
+    display: inline-block;
+    white-space: nowrap;
+    flex-basis: auto;
+    width: auto;
+}
+
+.c-button {
+    font-size: calc(.875rem + (0 * (100vw - 400px)/ 624));
+    appearance: none;
+    background: 0 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+    font-family: Slack-Circular-Pro, "Helvetica Neue", Helvetica, "Segoe UI", Tahoma, Arial, sans-serif;
+    font-weight: 700;
+    line-height: 1.2857;
+    letter-spacing: .8px;
+    
+}

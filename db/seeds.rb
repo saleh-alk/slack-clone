@@ -10,10 +10,12 @@ ApplicationRecord.transaction do
   # Unnecessary if using `rails db:seed:replant`
   User.destroy_all
   Workplace.destroy_all
+  Channel.destroy_all
   # puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
   ApplicationRecord.connection.reset_pk_sequence!('users')
   ApplicationRecord.connection.reset_pk_sequence!('workplaces')
+  ApplicationRecord.connection.reset_pk_sequence!('channels')
   
   # Create one user with an easy to remember username, email, and password:
   User.create!(
@@ -46,6 +48,16 @@ ApplicationRecord.transaction do
       workplace_id: rand(1...10)
     }) 
   end
+
+    10.times do 
+    Channel.create!({
+      owner_id: rand(1..10),
+      name: Faker::Internet.unique.username(specifier: 3),
+      private: true
+    }) 
+  end
+
+
 
 
 

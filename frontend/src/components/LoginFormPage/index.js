@@ -13,6 +13,8 @@ function LoginFormPage() {
     const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
+    const [demoCredential, setDemoCredential] = useState('demo@user.io');
+    const [demoPassword, setDemoPassword] = useState('password');
 
 
     if (sessionUser) return <Redirect to="./workplace" />;
@@ -20,6 +22,7 @@ function LoginFormPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors([]);
+        
         return dispatch(sessionActions.login({ credential, password }))
             .catch(async (res) => {
                 let data;
@@ -33,6 +36,27 @@ function LoginFormPage() {
                 else if (data) setErrors([data]);
                 else setErrors([res.statusText]);
             });
+    }
+
+    const handleDemo =(e) => {
+        e.preventDefault();
+        setErrors([]);
+   
+        return dispatch(sessionActions.login({ credential: demoCredential, password: demoPassword }))
+            .catch(async (res) => {
+                let data;
+                try {
+                    // .clone() essentially allows you to read the response body twice
+                    data = await res.clone().json();
+                } catch {
+                    data = await res.text(); // Will hit this case if the server is down
+                }
+                if (data?.errors) setErrors(data.errors);
+                else if (data) setErrors([data]);
+                else setErrors([res.statusText]);
+            });
+
+
     }
 
     return (
@@ -87,7 +111,11 @@ function LoginFormPage() {
                                         required
                                     />
                                 <button type="submit">Sign In With Email</button>
+                                
                             </div>
+                            </form>
+                            <form onSubmit={handleDemo}>
+                                <button type='submit'>Demo User</button>
                             </form>
                             </div>
                         </div>

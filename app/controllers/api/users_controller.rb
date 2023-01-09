@@ -1,9 +1,9 @@
 class Api::UsersController < ApplicationController
-wrap_parameters include: User.attribute_names + ['password']
+wrap_parameters include: User.attribute_names + ['password'], except: :index
 
 
   def index
-    @user = User.all
+    @users = User.all
     render :index
   end
 

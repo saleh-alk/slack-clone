@@ -2,11 +2,15 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk'
 import session from './session';
 import workplace from './workplace'
+import message from './messages';
+import channel from './channel'
 
 
 const rootReducer = combineReducers({
     session,
-    workplace
+    workplace,
+    message,
+    channel
 })
 
 let enhancer;

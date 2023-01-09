@@ -48,6 +48,17 @@ class User < ApplicationRecord
     class_name: :WorkplaceSubscription,
     dependent: :destroy
 
+    has_many :channels,
+    foreign_key: :owner_id,
+    class_name: :Channel,
+    dependent: :destroy,
+    inverse_of: :owner
+
+    has_many :messages,
+    foreign_key: :user_id,
+    class_name: :Message,
+    dependent: :destroy
+
   private
 
   def generate_unique_session_token

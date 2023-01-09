@@ -3,6 +3,23 @@ import csrfFetch from './csrf';
 const SET_CURRENT_USER = 'session/setCurrentUser';
 const REMOVE_CURRENT_USER = 'session/removeCurrentUser';
 
+const RECEIVE_USERS = 'RECEIVE_USERS';
+const RECEIVE_USER = 'RECEIVE_USER';
+
+export const receiveUsers = users => {
+    return {
+        type: RECEIVE_USERS,
+        users
+    };
+};
+
+export const receiveUser = user => {
+    return {
+        type: RECEIVE_USER,
+        user
+    };
+};
+
 const setCurrentUser = (user) => {
     return {
         type: SET_CURRENT_USER,

@@ -9,8 +9,15 @@ Rails.application.routes.draw do
     resource :session, only: [:show, :create, :destroy]
     resources :workplaces, only: [:index, :create, :update]
     resources :workplace_subscriptions
+
+    resources :channels, only: [:index, :show, :create, :destroy]
+    resources :messages, only: [:create, :destroy, :index]
+
   end
   # post 'api/test', to: 'application#test'
+  
+
+  mount ActionCable.server => "/cable"
 
   get "*path", to: "static_pages#frontend"
 end

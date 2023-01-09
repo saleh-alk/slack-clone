@@ -10,9 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_31_195310) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_05_204438) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "channels", force: :cascade do |t|
+    t.bigint "owner_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "private", null: false
+    t.index ["owner_id"], name: "index_channels_on_owner_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "channel_id", null: false
+    t.text "body", null: false
+    t.boolean "private", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["channel_id"], name: "index_messages_on_channel_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
@@ -44,6 +64,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_31_195310) do
     t.index ["admin_id"], name: "index_workplaces_on_admin_id"
   end
 
+  add_foreign_key "channels", "users", column: "owner_id"
+  add_foreign_key "messages", "channels"
+  add_foreign_key "messages", "users"
   add_foreign_key "workplace_subscriptions", "users"
   add_foreign_key "workplace_subscriptions", "workplaces"
   add_foreign_key "workplaces", "users", column: "admin_id"
