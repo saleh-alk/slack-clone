@@ -4,7 +4,7 @@ import * as sessionActions from '../../store/session';
 
 
 function Message(props) {
- console.log(props.message.body)
+ 
 
   return (
     <li>

@@ -8,7 +8,7 @@ function ChatBoxHeader() {
   const channels = useSelector(state => state.channel.channels)
   const {channelId} = useParams()
   const dispatch = useDispatch()
-  console.log(channels)
+  
  
   return (
     <>

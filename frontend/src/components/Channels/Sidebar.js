@@ -18,7 +18,7 @@ function Sidebar() {
     
 
 
-    console.log(workplaceId)
+   
    
 
     useEffect(() => {

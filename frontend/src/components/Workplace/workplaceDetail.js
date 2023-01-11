@@ -13,12 +13,18 @@ function WorkplaceDetail(props) {
     const dispatch = useDispatch()
     const history = useHistory()
 
+    
 
    
 
     const onClick = () => {
+
+        if(props.workplace.id){
         dispatch(currentWorkplaceActions.fetchWorkplace(props.workplace.id))
         history.push(`/${props.workplace.id}/channels/1`)
+        } else{
+            history.push(`/${props.workplace.adminId}/channels/1`)
+        }
     }
 
     return (
