@@ -2,7 +2,11 @@ class Api::ChannelsController < ApplicationController
     #  before_action :require_logged_in, except: [:index]
 
   def index
-    @channels = Channel.includes(:owner).all
+
+    @workplace = Workplace.find_by(id: params[:workplace_id])
+    @channels = @workplace.channels
+    # @channels = Channel.includes(:owner).all
+    render :index
   end
 
   def show

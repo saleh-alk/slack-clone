@@ -2,19 +2,22 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import * as messageActions from '../../store/messages'
 import consumer from '../../consumer';
+import { receiveUser } from '../../store/session';
+import { useParams } from 'react-router-dom';
 
-function MessageBox({channelId}) {
+function MessageBox() {
 
 
     const dispatch = useDispatch()
 
     const [body, setBody] = useState("")
-    const [channel, setChannel] = useState(1)
+    // const [channel, setChannel] = useState(1)
     const sessionUserId = useSelector(state => state.session.user.id)
     const [isPrivate, setIsPrivate] = useState(true)
     const [errors, setErrors] = useState([]);
 
     const [input, setInput] = useState("")
+    const {channelId} = useParams()
 
     
 
@@ -24,10 +27,13 @@ function MessageBox({channelId}) {
         // Add the following lines to the end of the `useEffect` to create a
         // subscription:
         const subscription = consumer.subscriptions.create(
-            { channel: 'ChannelsChannel', id: 1 },
+            { channel: 'ChannelsChannel', id: channelId },
               {
-                received: message => {
-                    console.log('Received message: ', message);
+                  connected: () => console.log('connected'),
+                  disconnected: () => console.log('disconnected'),
+                received: ({message, user}) => {
+                    dispatch(messageActions.receiveMessage(message));
+                    dispatch(receiveUser(user))
                 }
             }
         );
@@ -39,34 +45,14 @@ function MessageBox({channelId}) {
         e.preventDefault();
         setBody(input)
         setInput("")
-        return dispatch(messageActions.createMessage({ sessionUserId, channel, body, isPrivate }))
-            .catch(async (res) => {
-               
-                let data;
-                ;
-                try {
-                    // .clone() essentially allows you to read the response body twice
-                    data = await res.clone().json();
-
-                } catch {
-                    data = await res.text(); // Will hit this case if the server is down
-
-                }
-                if (data?.errors) setErrors(data.errors);
-                else if (data) setErrors([data]);
-                else setErrors([res.statusText]);
-
-            
-            });
-           
-            
+        messageActions.createMessage({ sessionUserId, channel: channelId, body, isPrivate })
+ 
            
     }
 
 
   return (
     <div className='message-box'>
-        {console.log(sessionUserId)}
         <form onSubmit={handleSubmit}>
             <input value={body}
                  placeholder={'Message'}

@@ -4,13 +4,18 @@ import session from './session';
 import workplace from './workplace'
 import message from './messages';
 import channel from './channel'
+import workplaceSubscriber from './workplaceSubscriber';
+import currentWorkplace from './currentWorkplace'
 
 
 const rootReducer = combineReducers({
     session,
     workplace,
     message,
-    channel
+    channel,
+    workplaceSubscriber,
+    currentWorkplace
+
 })
 
 let enhancer;

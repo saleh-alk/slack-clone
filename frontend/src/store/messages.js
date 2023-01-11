@@ -25,19 +25,7 @@ export const removeMessage = messageId => {
     };
 };
 
-export const getMessages = roomId => state => {
-    if (state.messages){
-    return Object.values(state.messages)
-        .filter(message => message.roomId === parseInt(roomId))
-        .map(message => ({
-            ...message,
-            author: state.users[message.authorId]?.username
-        }))
-        .sort(({ createdAt: timeA }, { createdAt: timeB }) => Math.sign(
-            new Date(timeA).getTime() - new Date(timeB).getTime()
-        ));
-    }
-};
+
 
 export const createMessage = (message) => {
     const { sessionUserId, channel, body, isPrivate } = message
@@ -52,11 +40,30 @@ export const createMessage = (message) => {
     })
 };
 
+export const fetchMessages = (channelId) => async (dispatch) => {
+    const res = await csrfApiFetch(`/api/messages?channelId=${channelId}`)
+
+    if (res.ok) {
+        let messages = await res.json()
+        dispatch(receiveMessages(messages))
+        return messages
+
+    }
+}
+
 export const destroyMessage = id => (
     csrfApiFetch(`messages/${id}`, {
         method: 'DELETE'
     })
 );
+
+export const getMessages = (channelId) => (state) =>{
+    if(state?.message){
+        return Object.values(state.message).filter((msg) => msg.channelId === channelId)
+    } else{
+        return []
+    }
+} 
 
 const messagesReducer = (state = {}, action) => {
     switch (action.type) {
@@ -64,7 +71,7 @@ const messagesReducer = (state = {}, action) => {
             const { message } = action;
             return { ...state, [message.id]: message };
         case RECEIVE_MESSAGES:
-            return { ...state, ...action.messages };
+            return { ...action.messages };
         case REMOVE_MESSAGE:
             const newState = { ...state };
             delete newState[action.messageId];

@@ -286,4 +286,53 @@ div {
     font-size: 10px;
 }
 
+.modal{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+}
+
+.modal-content{
+
+    width: 500px;
+    height: 400px;
+    background-color: white;
+}
+
+.create-channel {
+    width: 5px;
+    font-size: 20px;
+    background-color: white;
+    color: black;
+    height: 20px;
+}
+
+.channel-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.channel-links{
+    color: grey;
+    text-decoration: none;
+}
+
+.close-channel-modal{
+        width: 5px;
+        font-size: 20px;
+        background-color: white;
+        color: black;
+        height: 20px;
+        border-width: 10px;
+        border-color: black;
+    
+}

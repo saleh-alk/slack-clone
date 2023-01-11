@@ -1,18 +1,20 @@
 class Api::MessagesController < ApplicationController
-     before_action :require_logged_in, except: [:index, :create]
+     before_action :require_logged_in, except: [:index]
 
 
   def index
-    @messages = Message.all 
-    @message= Message.new
+    
+    @channel = Channel.find_by(id: params[:channel_id])
+    @messages = @channel.messages
     render :index
   
   end
 
   def create
+    
     @message = Message.new(message_params)
   
-    if @message.save
+    if @message.save!
       # Your code here
       # render :show , locals: { message: @message }
       ChannelsChannel.broadcast_to @message.channel,

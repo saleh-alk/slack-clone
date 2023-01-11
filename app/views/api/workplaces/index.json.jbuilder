@@ -3,4 +3,5 @@ json.array!(@workplaces) do |workplace|
     #     json.partial! 'workplace', workplace: workplace
     # end
   json.extract! workplace, :name, :url, :admin_id
+  
 end

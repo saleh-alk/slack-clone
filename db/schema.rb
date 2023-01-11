@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_05_204438) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_10_181031) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,7 +20,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_204438) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "private", null: false
+    t.bigint "workplace_id", null: false
     t.index ["owner_id"], name: "index_channels_on_owner_id"
+    t.index ["workplace_id"], name: "index_channels_on_workplace_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -65,6 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_204438) do
   end
 
   add_foreign_key "channels", "users", column: "owner_id"
+  add_foreign_key "channels", "workplaces"
   add_foreign_key "messages", "channels"
   add_foreign_key "messages", "users"
   add_foreign_key "workplace_subscriptions", "users"

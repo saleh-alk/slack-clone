@@ -3,7 +3,7 @@ import csrfFetch from './csrf';
 
 
 const SET_CURRENT_WORKPLACE = 'workplace/setCurrentWorkplace';
-
+const RECEIVE_WORKPLACE = "RECEIVE_WORKPLACE"
 export const RECEIVE_WORKPLACES = "workplace/RECEIVE_WORKPLACES"
 
 
@@ -20,21 +20,39 @@ export const receiveWorkplaces = (workplaces) => ({
     payload: workplaces
 })
 
+
+export const receiveWorkplace = (workplace) => ({
+    type: RECEIVE_WORKPLACE,
+    payload: workplace
+})
+
 export const getWorkplaces = (store) => {
-    if (store.workplaces) {
-        return Object.values(store.workplaces)
+    if (store?.workplace) {
+        return Object.values(store.workplace)
     }
     return []
 }
 
 
 
-export const fetchWorkplaces = () => async (dispatch) => {
-    const res = await fetch("/api/workplaces")
+
+export const fetchWorkplaces = (userId) => async (dispatch) => {
+    const res = await fetch(`/api/workplaces?userId=${userId}`)
 
     if (res.ok) {
         const workplaces = await res.json()
         dispatch(receiveWorkplaces(workplaces))
+        return workplaces
+    }
+}
+
+export const fetchWorkplace = (workplaceId) => async (dispatch) => {
+    const res = await fetch(`/api/workplaces/${workplaceId}`)
+
+    if (res.ok) {
+        const workplace = await res.json()
+        dispatch(receiveWorkplace(workplace))
+        return workplace
     }
 }
 

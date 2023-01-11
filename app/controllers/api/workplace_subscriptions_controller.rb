@@ -1,7 +1,8 @@
 class Api::WorkplaceSubscriptionsController < ApplicationController
     def index
-        @subscriptions = WorkplaceSubscription.all
-        @subscription = WorkplaceSubscription.new
+       
+        @user = User.find_by(id: params[:user_id])
+        @subscriptions = @user.workplace_subscriptions
         render :index
     end
 

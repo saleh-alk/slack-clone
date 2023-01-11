@@ -2,13 +2,13 @@
 #
 # Table name: messages
 #
-#  id          :bigint           not null, primary key
-#  user_id     :bigint           not null
-#  channel_id  :bigint           not null
-#  description :text             not null
-#  private     :boolean          not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id         :bigint           not null, primary key
+#  user_id    :bigint           not null
+#  channel_id :bigint           not null
+#  body       :text             not null
+#  private    :boolean          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 class Message < ApplicationRecord
     validates :body, :private, presence: true

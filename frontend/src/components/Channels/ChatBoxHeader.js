@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom';
+import { createChannel, destroyChannel, fetchChannels, fetchChannel } from '../../store/channel.js';
 
 function ChatBoxHeader() {
+  const channels = useSelector(state => state.channel.channels)
+  const {channelId} = useParams()
+  const dispatch = useDispatch()
+  console.log(channels)
+ 
   return (
     <>
         <div className='chat-container'>
             <div className='left-container'>
-                  <h4><strong>#Channel-Name</strong></h4> 
+          {channels && Object.values(channels)?.map((channel) => channelId == channel.id && <h4><strong>#{channel.name}</strong></h4>)}
+                  
             </div>
         </div>
     </>

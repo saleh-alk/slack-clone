@@ -1,30 +1,29 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { createChannel, destroyChannel, fetchChannels } from '../../store/channel.js';
+import ChannelModal from './ChannelModal.js';
 
 function Sidebar() {
 
-    const [name, setName] = useState('');
+    
     const currentUserId = useSelector(state => state.session.user.id);
-    // const channels = useSelector(state => Object.values(state.channels));
+
+    const channels = useSelector(state => state.channel.channels)
+    const {workplaceId, channelId} = useParams()
+    const [show, setShow] = useState(false)
+
     const dispatch = useDispatch();
-    const [channels, setChannels] = useState("")
+    
 
-    const fetchChannels = () => async (dispatch) => {
-        const res = await fetch("/api/channels")
 
-        if (res.ok) {
-            const channels = await res.json()
-            //dispatch(receiveWorkplaces(workplaces))
-            setChannels(Object.values(channels.channels))
-        }
-    }
+    console.log(workplaceId)
+   
 
     useEffect(() => {
-        dispatch(fetchChannels());
-    }, [dispatch]);
+        dispatch(fetchChannels(workplaceId));
+    }, [workplaceId]);
 
   return (
     <>
@@ -42,13 +41,16 @@ function Sidebar() {
     <div className='c-virtual_list c-virtual_list--scrollbar p-channel_sidebar__static_list c-scrollbar c-scrollbar--hidden'>
         <br></br>
         <br></br>
-              
+        <div className='channel-header'>
+            <h3 className='channel-title'>Channel </h3>
+            <button className='create-channel' onClick={() => setShow(true)}>+</button>
+                <ChannelModal onClose={() => setShow(false)} show={show} />
+        </div>
+            
 
-        <h3 className='channel-title'>Channel</h3>
-
-              {channels ? channels.map(({ id, name, isPrivate, ownerId }) => (
+              {channels ? Object.values(channels).map(({ id, name, isPrivate, ownerId }) => (
                   <li key={id}>
-                      <NavLink to={currentUserId ? `/channels/${id}` : '/login'}>
+                      <NavLink className="channel-links" to={currentUserId ? `/${workplaceId}/channels/${id}` : '/login'}>
                           # {name}
                       </NavLink>
                       

@@ -53,7 +53,8 @@ ApplicationRecord.transaction do
     Channel.create!({
       owner_id: rand(1..10),
       name: Faker::Internet.unique.username(specifier: 3),
-      private: true
+      private: true,
+      workplace_id: rand(1..3)
     }) 
   end
 

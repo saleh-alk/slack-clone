@@ -6,7 +6,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import Workplace from "./components/Workplace"
 import NotFoundPage from "./components/NotFoundPage"
-import CreateWorkplace from './components/Messages/createWorkplace';
+import CreateWorkplace from './components/CreateWorkspace/createWorkplace';
 import Splash from './components/SplashPage';
 // import ChannelsIndex from './components/Channels/ChannelsIndex';
 import Channel from './components/Channels/Header';
@@ -19,9 +19,10 @@ function App() {
   const currentUser = useSelector(state => state.session.user);
   const current = useSelector(state => state)
   
+  
   return (
     <>
-      <Navigation />
+      {/* <Navigation /> */}
       <Switch>
         <Route path="/login">
           
@@ -34,7 +35,7 @@ function App() {
             <Workplace />
         </Route>
 
-        <Route path="/channels">
+        <Route path="/:workplaceId/channels/:channelId">
           <Channel />
           <Sidebar />
           <ChatBoxHeader />
@@ -47,23 +48,10 @@ function App() {
         </Route>
 
 
-        {/* <Route path='/channels' render={routeProps => (
-          <section className='home'>
-            <ChannelsIndex {...routeProps} />
-            {currentUser &&
-              <Route path='/channels/:id' component={Channel} />
-            }
-          </section>
-        )} /> */}
-
-
         <Route path="*" component={NotFoundPage} />
         <Route path="/">
           <Splash />
         </Route>
-
-      
-        
 
       </Switch>
     </>

@@ -3,6 +3,7 @@ json.array!(@subscriptions) do |subscription|
     #     json.partial! 'workplace', workplace: workplace
     # end
   json.extract! subscription, :user_id, :workplace_id
+  json.workplace subscription.workplace
 end
 
 

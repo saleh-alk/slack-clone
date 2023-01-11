@@ -23,6 +23,11 @@ class Workplace < ApplicationRecord
         class_name: :WorkplaceSubscription,
         dependent: :destroy
 
+        has_many :channels,
+        foreign_key: :workplace_id,
+        class_name: :Channel,
+        dependent: :destroy
+
 
 
        

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as sessionActions from '../../store/session';
 import * as workplaceActions from '../../store/workplace'
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,8 +11,8 @@ import './Messages.css';
 function CreateWorkplace(){
 
     const sessionUser = useSelector(state => state.session.user.id);
-    const currentWorkplace = useSelector(state => state.workplace)
-    
+
+
     const dispatch = useDispatch();
     const [name, setName] = useState()
     const [url, setUrl] = useState()
@@ -30,34 +30,28 @@ function CreateWorkplace(){
                 let data;
                 
                 try {
-                    // .clone() essentially allows you to read the response body twice
                     data = await res.clone().json();
                     
                 } catch {
-                    data = await res.text(); // Will hit this case if the server is down
-                    
+                    data = await res.text(); 
                 }
                 if (data?.errors) setErrors(data.errors);
                 else if (data) setErrors([data]);
                 else setErrors([res.statusText]);
-                
 
-            });
+            })
     }
+
 
 
     return(
     
-        <body>
-            {/* <div style="position:absolute"></div> */}
 
             <div className='p-client_container'>
                 <div className='p-client p-client--toggle-larger-top-nav-bar p-client--a11y-layout'>
                     <div className='p-workspace-layout'>
                             <div className='p-top_nav'></div>
-                            {/* <div className='p-workspace__sidebar p-workspace__sidebar--tiny p-workspace__sidebar--with-transparent-resizer' ></div>
-                            <div className='p-flexpane__preview-mode-overlay hidden'></div> */}
-                            {/* <div className='p-workspace__channel_sidebar'></div> */}
+                            
 
                         <form onSubmit={handleSubmit}>
                             <label>
@@ -93,7 +87,7 @@ function CreateWorkplace(){
                                     required
                                 />
                             </label>
-                            <button type="submit">Create Workplace</button>
+                        <button type="submit">Create Workplace </button> 
                         </form>
                             
                     </div>
@@ -102,7 +96,7 @@ function CreateWorkplace(){
 
             </div>
                 
-        </body>
+       
 
            
         

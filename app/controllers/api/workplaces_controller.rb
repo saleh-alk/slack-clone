@@ -1,7 +1,8 @@
 class Api::WorkplacesController < ApplicationController
     def index
-        @workplaces = Workplace.all
-        @workplace = Workplace.new
+    
+        @user = User.find_by(id: params[:user_id])
+        @workplaces = @user.workplaces
         render :index
     end
 
@@ -14,6 +15,11 @@ class Api::WorkplacesController < ApplicationController
         else
             render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
         end
+    end
+
+    def show
+        @workplace = Workplace.find_by(id: params[:id])
+        render :show
     end
 
 
