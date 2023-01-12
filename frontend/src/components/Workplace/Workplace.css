@@ -145,6 +145,8 @@ hr {
 .p-workspace_info__icon {
     margin-right: 13px;
     margin-top: 5px;
+    display: flex;
+    color: black;
 }
 
 .p-workspace_info__content {
@@ -252,5 +254,21 @@ hr {
 }
 
 
+.add-workplace-button{
+    width: 10px;
+}
 
+.icon-name{
+    margin-left: 3px;
+    font-weight: 700;
+}
 
+.center-col{
+    display: flex;
+}
+
+.icon-name-header{
+    font-size: 40px;
+    margin-left: 10px;
+    font-weight:800;
+}

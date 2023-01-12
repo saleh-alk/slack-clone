@@ -67,10 +67,9 @@ function LoginFormPage() {
                 <div className='get-started-app-root'>
                     <header className='p-refreshed_page__header'>
                         <div className='left-col'></div>
-                        <div className='center-col'>
-                            <a>
-                                <img alt='Slack' height="75" src={slackLogo}></img>
-                            </a>
+                        <div className="center-col sign-in-icon">
+                            <Link to={"/"}><img src={slackLogo} height="50"></img></Link>
+                            <div className='icon-name-header'>khakis</div>
                         </div>
                         <div className='right-col'>
                             <div className='p-refreshed_page__header_sidelink'>

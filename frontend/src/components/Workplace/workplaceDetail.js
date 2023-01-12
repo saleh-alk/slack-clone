@@ -4,9 +4,9 @@ import * as currentWorkplaceActions from '../../store/workplace';
 import * as sessionActions from '../../store/session';
 import { Link, Redirect, useHistory } from "react-router-dom";
 import slackLogo from '../LoginFormPage/icon.png'
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 // import slackLogo from '../LoginFormPage/slack-logo.png'
 import arrow from '../LoginFormPage/arrow.png'
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
 
 import './Workplace.css';
 import { clearMessage } from '../../store/messages';
@@ -38,10 +38,14 @@ function WorkplaceDetail(props) {
 
     return (
         <>
+            
+
             <a className='c-link .p-workspaces_list__link'>
                 <div className='p-workspace_info'>
                     <div className='p-workspace_info__icon'>
                         <img src={slackLogo} height="25"></img>
+                        
+                        <div className='icon-name'>khakis</div>
                     </div>
                     <div className='p-workspace_info__content'>
                         <div className='p-workspace_info__title'>
@@ -52,8 +56,7 @@ function WorkplaceDetail(props) {
                         <span className='p-workspaces_list__link_icon_text'>
                             Open
                         </span>
-
-                        <button onClick={onClick}><i className='@mui/material/ArrowForward'></i></button>
+                        <button className="add-workplace-button" onClick={onClick}><BsFillArrowRightCircleFill /></button>
 
                     </div>
     

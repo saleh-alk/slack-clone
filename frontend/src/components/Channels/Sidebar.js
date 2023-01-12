@@ -7,6 +7,7 @@ import { fetchWorkplace } from '../../store/currentWorkplace.js';
 import Navigation from '../Navigation/index.js';
 import ChannelModal from './ChannelModal.js';
 import SubscriptionModal from './SubscriptionModal.js';
+import { BsPlusCircle } from 'react-icons/bs'
 
 function Sidebar() {
 
@@ -39,6 +40,7 @@ function Sidebar() {
 
   return (
     <>
+        
         <div className="side-main">
             <div className="inner-container">
             <div className="channel-contaier"> 
@@ -51,7 +53,7 @@ function Sidebar() {
             <div className="side-channel-title">
                  <div className='channel-title-header'>Channel</div>
                  <button className='delete-channel' onClick={deleteChannel}>-</button>
-                <div className="add-more-channels" onClick={() => setShow(true)}><button className='add-channel'>+</button></div>
+                          <div className="add-more-channels" onClick={() => setShow(true)}><button className='add-channel'>+</button></div>
                 <ChannelModal onClose={() => setShow(false)} show={show} />
                 
 

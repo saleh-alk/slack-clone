@@ -42,7 +42,8 @@ function Workplace() {
                 <header className="p-refreshed_page__header">
                     <div className="left-col"> </div>
                     <div className="center-col">
-                        <Link to={"/"}><img src={slackLogo} height="75"></img></Link>
+                        <Link to={"/"}><img src={slackLogo} height="50"></img></Link>
+                        <div className='icon-name-header'>khakis</div>
                     </div>
                     <div className="right-col"></div>
                 </header>
