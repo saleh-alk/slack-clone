@@ -48,6 +48,10 @@ class User < ApplicationRecord
     class_name: :WorkplaceSubscription,
     dependent: :destroy
 
+    has_many :subscribed_workplaces,
+    through: :workplace_subscriptions,
+    source: :workplace
+
     has_many :channels,
     foreign_key: :owner_id,
     class_name: :Channel,

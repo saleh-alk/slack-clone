@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import { Link } from "react-router-dom";
-import slackLogo from '../LoginFormPage/slack-logo.png'
+import slackLogo from '../LoginFormPage/icon.png'
+// import slackLogo from '../LoginFormPage/slack-logo.png'
 import './Signup.css';
 
 function SignupFormPage() {

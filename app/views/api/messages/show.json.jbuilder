@@ -5,3 +5,4 @@ end
 json.user do 
   json.partial! 'api/users/user', user: message.user
 end
+

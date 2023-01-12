@@ -145,7 +145,7 @@ button{
     display: inline-flex;
     justify-content: center;
     outline: none;
-    position: relative;
+    /* position: relative; */
     text-align: center;
     user-select: none;
     white-space: nowrap;

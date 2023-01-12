@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Message from "./Message.js"
 import csrfFetch from '../../store/csrf'
 import { useParams } from 'react-router-dom';
+import ChatBoxHeader from './ChatBoxHeader';
+import MessageBox from './MessageBox';
 
 
 function ChatMessages() {
@@ -14,26 +16,49 @@ function ChatMessages() {
     const [messages, setMessages] = useState([])
     const dispatch = useDispatch()
     const {channelId} = useParams()
+    const {workplaceId} = useParams()
     const m = useSelector(messageActions.getMessages(+channelId))
 
   
 
     useEffect(() => {
         dispatch(messageActions.fetchMessages(channelId))
+        return () => dispatch(messageActions.clearMessage())
        
-    }, [dispatch, channelId])
+    }, [dispatch, channelId, workplaceId])
 
     
 
 
   return (
     
-    <div className='chat-messages-box'>
+    <div className='channel-chat-messages'>
+      <ChatBoxHeader />
+      <div className='chat-messages-box'>
+        
+        <div></div>
+        <div className='channel-message-list-recipt'>
+          {m.map((message, i) => <Message message={message} key={i} />)}
+        </div>
 
+        <div className='chat-message-box-inner'>
+          <div className='chat-message-box-intro'>
+            <div className='img-intro-message-box'></div>
+            <div className='intro-message-container'>
+              This is the very begining of the channel
+            </div>
+          </div>
+
+        </div>
+
+       
+      </div>
+
+       <MessageBox />
     
-        <ul>{m.map((message, i) => <Message message={message} key={i} />) }
+        {/* <ul>{m.map((message, i) => <Message message={message} key={i} />) }
             
-        </ul>
+        </ul> */}
     </div>
 
   )

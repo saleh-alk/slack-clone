@@ -3,10 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as currentWorkplaceActions from '../../store/workplace';
 import * as sessionActions from '../../store/session';
 import { Link, Redirect, useHistory } from "react-router-dom";
-import slackLogo from '../LoginFormPage/slack-logo.png'
+import slackLogo from '../LoginFormPage/icon.png'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+// import slackLogo from '../LoginFormPage/slack-logo.png'
 import arrow from '../LoginFormPage/arrow.png'
 
 import './Workplace.css';
+import { clearMessage } from '../../store/messages';
 
 
 function WorkplaceDetail(props) {
@@ -15,16 +18,22 @@ function WorkplaceDetail(props) {
 
     
 
-   
+
 
     const onClick = () => {
 
         if(props.workplace.id){
-        dispatch(currentWorkplaceActions.fetchWorkplace(props.workplace.id))
-        history.push(`/${props.workplace.id}/channels/1`)
-        } else{
-            history.push(`/${props.workplace.adminId}/channels/1`)
+        dispatch(clearMessage())
+        dispatch(currentWorkplaceActions.fetchWorkplace(props.workplace.id)).then((workplace)=> {
+
+            
+            
+        })
+        if(props.workplace.id){
+            history.push(`/${props.workplace.id}/channels/${props.workplace.firstChannel}`)
         }
+        
+        } 
     }
 
     return (
@@ -32,7 +41,7 @@ function WorkplaceDetail(props) {
             <a className='c-link .p-workspaces_list__link'>
                 <div className='p-workspace_info'>
                     <div className='p-workspace_info__icon'>
-                        <img src={slackLogo} height="30"></img>
+                        <img src={slackLogo} height="25"></img>
                     </div>
                     <div className='p-workspace_info__content'>
                         <div className='p-workspace_info__title'>
@@ -44,7 +53,7 @@ function WorkplaceDetail(props) {
                             Open
                         </span>
 
-                        <button onClick={onClick}><img src={arrow} height="25" className='c-icon c-icon--arrow-right-medium'></img></button>
+                        <button onClick={onClick}><i className='@mui/material/ArrowForward'></i></button>
 
                     </div>
     

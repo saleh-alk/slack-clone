@@ -93,7 +93,7 @@ html {
 }
 
 .p-top_nav {
-    width: 1500px;
+    width: 2000px;
  
     background: #350d36;
     box-shadow: 0 1px 0 0 rgb(255 255 255 / 10%);
@@ -103,6 +103,7 @@ html {
     display: flex;
     justify-content: center;
     min-width: 0;
+    
     position: relative;
     z-index: 203;
 }
@@ -163,3 +164,13 @@ form{
 
 }
 
+.form-for-create-workplace{
+    margin-left: 250px;
+    margin-top: 350px;
+}
+
+input[type='text'] {
+    -moz-box-shadow: 0px 0px 4px #612424;
+    -webkit-box-shadow: 0px 0px 4px #943b3b;
+    box-shadow: 0px 0px 4px #9a3939;
+}

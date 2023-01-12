@@ -18,7 +18,7 @@ class Api::ChannelsController < ApplicationController
   def create
     @channel = Channel.new(channel_params)
 
-    if @channel.save
+    if @channel.save!
       render '_channel', locals: { channel: @channel }
     else
       render json: @channel.errors.full_messages, status: 422
@@ -26,7 +26,7 @@ class Api::ChannelsController < ApplicationController
   end
 
   def destroy
-    @channel = channel.find(params[:id])
+    @channel = Channel.find_by(id: params[:id])
     @channel.destroy
     # Your code here
     render json: nil, status: :ok
@@ -35,6 +35,6 @@ class Api::ChannelsController < ApplicationController
   private
 
   def channel_params
-    params.require(:channel).permit(:name, :private, :owner_id)
+    params.require(:channel).permit(:name, :private, :owner_id, :workplace_id)
   end
 end

@@ -9,11 +9,14 @@ import NotFoundPage from "./components/NotFoundPage"
 import CreateWorkplace from './components/CreateWorkspace/createWorkplace';
 import Splash from './components/SplashPage';
 // import ChannelsIndex from './components/Channels/ChannelsIndex';
-import Channel from './components/Channels/Header';
+import Header from './components/Channels/Header';
+import Channel from './components/Channels/Channel';
 import Sidebar from './components/Channels/Sidebar';
 import ChatBoxHeader from './components/Channels/ChatBoxHeader';
 import MessageBox from './components/Channels/MessageBox';
 import ChatMessages from './components/Channels/ChatMessages';
+import ChannelModal from './components/Channels/ChannelModal';
+import JoinWorkplace from './components/JoinWorkplace';
 
 function App() {
   const currentUser = useSelector(state => state.session.user);
@@ -22,7 +25,7 @@ function App() {
   
   return (
     <>
-      {/* <Navigation /> */}
+      
       <Switch>
         <Route path="/login">
           
@@ -36,22 +39,25 @@ function App() {
         </Route>
 
         <Route path="/:workplaceId/channels/:channelId">
+          <Header />
           <Channel />
-          <Sidebar />
-          <ChatBoxHeader />
-          <MessageBox />
-          <ChatMessages />
+  
+          
         </Route>
 
         <Route path="/newWorkplace">
           <CreateWorkplace />
         </Route>
+        <Route path="/joinWorkplace">
+          <JoinWorkplace />
+        </Route>
 
 
-        <Route path="*" component={NotFoundPage} />
         <Route path="/">
           <Splash />
         </Route>
+        
+        <Route path="*" component={NotFoundPage} />
 
       </Switch>
     </>

@@ -10,7 +10,7 @@ function Navigation() {
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
-            <ProfileButton user={sessionUser} />
+            <ProfileButton  user={sessionUser} />
         );
     } else {
         sessionLinks = (
@@ -23,10 +23,10 @@ function Navigation() {
 
     return (
         <ul>
-            <li>
-                <NavLink exact to="/">Home</NavLink>
-                {sessionLinks}
-            </li>
+            
+                <NavLink exact to="/"></NavLink>
+                <div className="nav-login-button">{sessionLinks}</div>
+            
         </ul>
     );
 }

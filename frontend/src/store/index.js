@@ -6,6 +6,8 @@ import message from './messages';
 import channel from './channel'
 import workplaceSubscriber from './workplaceSubscriber';
 import currentWorkplace from './currentWorkplace'
+import user from './user';
+
 
 
 const rootReducer = combineReducers({
@@ -14,7 +16,9 @@ const rootReducer = combineReducers({
     message,
     channel,
     workplaceSubscriber,
-    currentWorkplace
+    currentWorkplace,
+    user
+
 
 })
 

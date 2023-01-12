@@ -3,6 +3,7 @@ import csrfApiFetch from './csrf';
 const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
 const REMOVE_MESSAGE = 'REMOVE_MESSAGE';
+const CLEAR_MESSAGES = "CLEAR_MESSAGES"
 
 export const receiveMessage = message => {
     return {
@@ -24,6 +25,12 @@ export const removeMessage = messageId => {
         messageId
     };
 };
+
+export const clearMessage = () => {
+    return {
+        type: CLEAR_MESSAGES
+    }
+}
 
 
 
@@ -51,11 +58,16 @@ export const fetchMessages = (channelId) => async (dispatch) => {
     }
 }
 
-export const destroyMessage = id => (
-    csrfApiFetch(`messages/${id}`, {
+export const destroyMessage =(id) => async (dispatch) => {
+    const res = await csrfApiFetch(`/api/messages/${id}`, {
         method: 'DELETE'
     })
-);
+   
+    if(res.ok){
+        let data = await res.json()
+        dispatch(removeMessage(id))
+    }
+};
 
 export const getMessages = (channelId) => (state) =>{
     if(state?.message){
@@ -66,16 +78,23 @@ export const getMessages = (channelId) => (state) =>{
 } 
 
 const messagesReducer = (state = {}, action) => {
+    let newState = {...state}
     switch (action.type) {
         case RECEIVE_MESSAGE:
             const { message } = action;
             return { ...state, [message.id]: message };
         case RECEIVE_MESSAGES:
-            return { ...action.messages };
+
+            action.messages.forEach(msg => {
+                newState[msg.id] = msg
+            });
+            return newState
         case REMOVE_MESSAGE:
-            const newState = { ...state };
+            
             delete newState[action.messageId];
             return newState;
+        case CLEAR_MESSAGES:
+            return {}
         default:
             return state;
     }

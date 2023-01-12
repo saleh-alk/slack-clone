@@ -41,7 +41,7 @@ function CreateWorkplace(){
                 if (data?.errors) setErrors(data.errors);
                 else if (data) setErrors([data]);
                 else setErrors([res.statusText]);
-
+                
             })
             
 
@@ -54,11 +54,11 @@ function CreateWorkplace(){
     
 
             <div className='p-client_container'>
-                <div className='p-client p-client--toggle-larger-top-nav-bar p-client--a11y-layout'>
+               
                     <div className='p-workspace-layout'>
                             <div className='p-top_nav'></div>
                             
-
+                    <div className='form-for-create-workplace'> 
                         <form onSubmit={handleSubmit}>
                             <label>
                                 What do you want to call this workplace?
@@ -95,10 +95,11 @@ function CreateWorkplace(){
                             </label> */}
                         <button type="submit">Create Workplace </button> 
                         </form>
+                </div>
                             
                     </div>
                     
-                </div>
+              
 
             </div>
                 

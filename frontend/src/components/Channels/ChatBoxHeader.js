@@ -12,11 +12,14 @@ function ChatBoxHeader() {
  
   return (
     <>
-        <div className='chat-container'>
-            <div className='left-container'>
-          {channels && Object.values(channels)?.map((channel) => channelId == channel.id && <h4><strong>#{channel.name}</strong></h4>)}
-                  
-            </div>
+        <div className='channel-title'>
+          <div></div>
+          <div className='channel-title-display'>
+            {channels && Object.values(channels)?.map((channel) => channelId == channel.id && <div className='channel-header-message'><strong>#{channel.name}</strong></div>)}      
+          </div>
+          <div className='channel-title-dropdown'>
+
+          </div>
         </div>
     </>
 

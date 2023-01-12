@@ -2,18 +2,20 @@ class Api::WorkplacesController < ApplicationController
     def index
     
         @user = User.find_by(id: params[:user_id])
-        @workplaces = @user.workplaces
+        @workplaces = @user.workplaces || @user.subscribed_workplaces
+        
         render :index
     end
+
 
 
     def create
         @workplace = Workplace.new(workplace_params)
         @workplace.admin = current_user
-        if @workplace.save
+        if @workplace.save!
             render :show
         else
-            render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: @workplace.errors.full_messages }, status: :unprocessable_entity
         end
     end
 
@@ -21,6 +23,8 @@ class Api::WorkplacesController < ApplicationController
         @workplace = Workplace.find_by(id: params[:id])
         render :show
     end
+
+   
 
 
 

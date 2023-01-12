@@ -58,29 +58,49 @@ export const fetchChannel = (id) => dispatch => {
     });
 };
 
-export const createChannel = channel => dispatch => {
-    return csrfApiFetch('channels', {
+// export const createChannel = channel => dispatch => {
+//     return csrfApiFetch('channels', {
+//         method: 'POST',
+//         data: { channel }
+//     }).then(channel => dispatch(receiveChannel(channel)));
+// };
+
+
+export const createChannel = (channel) => async dispatch => {
+    const {ownerId, name, isPrivate, workplaceId} = channel
+    const res = await csrfApiFetch('/api/channels', {
         method: 'POST',
-        data: { channel }
-    }).then(channel => dispatch(receiveChannel(channel)));
-};
+        body: JSON.stringify({
+            owner_id: ownerId,
+            name: name,
+            private: isPrivate,
+            workplace_id: parseInt(workplaceId)
+        })
+    })
+
+    if(res.ok){
+        const channel = await res.json()
+        dispatch(receiveChannel(channel))
+    }
+
+}
 
 export const destroyChannel= channelId => dispatch => {
-    return csrfApiFetch(`channels/${channelId}`, {
+    return csrfApiFetch(`/api/channels/${channelId}`, {
         method: 'DELETE'
     }).then(() => dispatch(removeChannel(channelId)));
 };
 
 const channelsReducer = (state = {}, action) => {
     switch (action.type) {
-        // case RECEIVE_CHANNEL:
-        //     const { channel } = action;
-        //     return { ...state, [channel.id]: channel };
+        case RECEIVE_CHANNEL:
+            const { channel } = action;
+            return { ...state, channels:{...state.channels,[channel.id]: channel} };
         case RECEIVE_CHANNELS:
             return { ...state, ...action.channels };
         case REMOVE_CHANNEL:
             const newState = { ...state };
-            delete newState[action.channelId];
+            delete newState.channels[action.channelId];
             return newState;
         default:
             return state;

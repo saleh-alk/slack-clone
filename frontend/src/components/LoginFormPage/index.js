@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import './LoginForm.css';
-import slackLogo from './slack-logo.png'
+import slackLogo from './icon.png'
+// import slackLogo from './slack-logo.png'
 
 
 function LoginFormPage() {

@@ -41,6 +41,8 @@ const workplaceSubscriberReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_WORKPLACE_SUBSCRIBERS:
             return { ...state, workplaceSubscriber: action.payload }
+        case SET_CURRENT_WORKPLACE_SUBSCRIBER:
+            return {...state, workplaceSubscriber: action.payload}
         default:
             return state;
     }
@@ -50,15 +52,15 @@ export default workplaceSubscriberReducer;
 
 
 export const createWorkspaceSubscriber = (workplaceSubscriber) => async (dispatch) => {
-    const { userId, workplaceId } = workplaceSubscriber;
-    const response = await csrfFetch("/api/workplace_subscribers", {
+    const { username, workplaceId } = workplaceSubscriber;
+    const response = await csrfFetch("/api/workplace_subscriptions", {
         method: "POST",
         body: JSON.stringify({
-            userId,
+            username,
             workplaceId
         })
     });
     const data = await response.json();
-    dispatch(setCurrentWorkplaceSubscriber(data.workplaceSubsciber));
+    dispatch(setCurrentWorkplaceSubscriber(data.workplaceSubscription));
     return response;
 };

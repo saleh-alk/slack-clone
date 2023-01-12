@@ -59,7 +59,7 @@ export const fetchWorkplace = (workplaceId) => async (dispatch) => {
 const workplaceReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_WORKPLACES:
-            return {...state, workplace: action.payload }
+            return {...state, ...action.payload }
         default:
             return state;
     }

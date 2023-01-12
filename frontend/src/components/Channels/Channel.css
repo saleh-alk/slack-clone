@@ -14,264 +14,26 @@ div {
     display: block;
 }
 
+a{
+    border-bottom: 0px solid;
+}
+
 *,
 :after,
 :before {
     box-sizing: inherit;
 }
 
-.p-client.p-client--a11y-layout,
-.p-client.p-client--topnav-removed {
-    grid-template-areas:
-        "p-client__workspace"
-        "p-client__banners";
-    grid-template-rows: auto min-content;
-}
-
-.p-client{
-    background: rgba(var(--sk_primary_background, 255, 255, 255), 1);
-    display: grid;
-    grid-template-columns: auto;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-}
-
-.p-client--a11y-layout .p-workspace-layout {
-    overflow: visible;
-}
-
-.p-workspace-layout {
-    grid-template-columns: 200px auto;
-    grid-template-rows: 44px auto;
-    grid-template-areas:
-        'p-top_nav p-top_nav'
-        'p-workspace__sidebar p-workspace__primary_view';
-}
-
-.p-workspace-layout {
-    display: grid;
-    position: relative;
-}
-
-.p-client--a11y-layout .p-top_nav {
-    grid-area: p-top_nav;
-}
-
-.p-top_nav {
-    background: #350d36;
-    box-shadow: 0 1px 0 0 rgb(255 255 255 / 10%);
-}
-
-.p-top_nav {
-    -webkit-app-region: drag;
-    align-items: center;
-    color: var(--p-channel_sidebar__top-nav-text);
-    display: flex;
-    justify-content: center;
-    min-width: 0;
-    position: relative;
-    z-index: 203;
-}
-
-.p-top_nav__sidebar {
-    min-width: auto;
-    flex-grow: 0;
-    padding-left: 16px;
-}
-
-.p-top_nav__search__container {
-    display: flex;
-    flex: 2;
-    max-width: 732px;
-    min-width: 0;
-    position: relative;
-}
-
-.p-top_nav__sidebar {
-    min-width: auto;
-    margin-left: auto;
-    flex-grow: 0;
-    padding-left: 16px;
-    align-items: center;
-    display: flex;
-    flex: 1;
-    justify-content: flex-end;
-    padding-right: 16px;
-    position: relative;
-}
-
-.p-workspace-layout .p-workspace__sidebar {
-    grid-template-areas: "p-workspace__channel_sidebar";
-    grid-template-rows: auto;
-    overflow: hidden;
-}
-
-.p-workspace__sidebar {
-    display: grid;
-    grid-area: p-workspace__sidebar;
-    grid-template-columns: auto;
-    position: relative;
-    width: 200px;
-}
-
-.p-workspace-layout .p-workspace__channel_sidebar {
-    display: flex;
-    flex-direction: column;
-    min-height: 0;
-    min-width: 0;
-}
-
-.p-workspace__channel_sidebar {
-    grid-area: p-workspace__channel_sidebar;
-}
-
-.p-ia__sidebar_header{
-    color: #FFFFFF;
-}
-
-.p-ia__sidebar_header--ia_details_popover {
-    font-size: 18px;
-    font-weight: 900;
-    line-height: 1.33334;
-    min-height: 50px;
-}
-
-.p-ia__sidebar_header {
-    align-items: stretch;
-    background:#350d36;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 230px;
-}
-
-.display-content{
-    display: contents;
-}
 
 
-
-
-
-.sidebar-container{
-    background-color: #350d36;
-}
-
-.p-channel_sidebar__compose_button {
-    background: #FFFFFF;
-}
-
-.p-channel_sidebar__compose_button {
-    fill: var(--p-channel_sidebar__column-bg);
-    align-items: center;
-    border-radius: 9999px;
-    box-shadow: 0 1px 3px #00000014;
-    color: black;
-    display: flex;
-    font-size: 17px;
-    height: 34px;
-    justify-content: center;
-    position: absolute;
-    right: 16px;
-    top: 8px;
-    transition-duration: 80ms;
-    transition-property: box-shadow, transform, background-color;
-    transition-timing-function: cubic-bezier(.175, .875, .5, 1.5);
-    user-select: none;
-    width: 34px;
-    z-index: 3;
-    
-}
-
-.p-workspace__channel_sidebar_group {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.p-channel_sidebar {
-    background: purple;
-    color: var(--p-channel_sidebar__computed-text-color);
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    height: 100%;
-    padding: 0;
-    position: relative;
-    width: 220px;
-}
-
-
-.c-virtual_list{
-        width: 230px;
-        height: 900px;
-        background-color: #350d36;
-        outline: none;
-
-    }
-
-.channel-title{
-    color: white;
-}
-
-
-
-.chat-container{
-    flex: 0.7;
-    flex-grow: 1;
-    overflow-y: scroll;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    width: 1130px;
-    height: 50px;
-   
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid lightgray;
-
-}
-
-.message-box{
-    flex: 0.7;
-    flex-grow: 1;
-    overflow-y: scroll;
-    position: absolute;
-    top: 610px;
-    right: 20px;
-    width: 1100px;
-    height: 120px;
-
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid lightgray;
-
-}
-
-.send-message{
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    width: 20px;
-
-}
-
-.chat-messages-box{
-    position: absolute;
-    top: 120px;
-    right: 20%;
-    width: 60%;
-    height: 63%;
-    display: flex;
-    flex-direction: column-reverse;
-    overflow-y: scroll;
-    border-color: #350d36;
-}
 
 
 .message-sent{
     border-color: #350d36;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 25px;
 }
 
 .message-sent-username{
@@ -304,6 +66,7 @@ div {
     width: 500px;
     height: 400px;
     background-color: white;
+    position: absolute;
 }
 
 .create-channel {
@@ -324,6 +87,10 @@ div {
 .channel-links{
     color: grey;
     text-decoration: none;
+    top: 50px;
+    height: 20px;
+    padding: 40px;
+    font-size: 20px;
 }
 
 .close-channel-modal{
@@ -331,8 +98,254 @@ div {
         font-size: 20px;
         background-color: white;
         color: black;
-        height: 20px;
+        
         border-width: 10px;
         border-color: black;
+        border-width: 20px;
+        border: 1px solid gray;
+        height: 30px;
     
+}
+
+.side-main{
+    background-color: #350d36;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 200px;
+    min-width: 300px;
+}
+
+.side-header{
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+    display: flex;
+    font-size: 25px;
+    color: white;
+    height: 40px;
+    width: 300px;
+
+}
+
+.side-channel-title{
+    height: 30px;
+    display: flex;
+    color: grey;
+    align-items: center;
+    font-size: 20px;
+}
+
+.add-channel{
+    margin-left: 130px;
+    font-weight: 300px;
+    font-size: 20px;
+   
+}
+
+
+
+.side-channels{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    align-items: flex-start;
+    
+
+}
+
+.side-channel-list{
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+}
+
+.hashtag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.inner-container{
+    display: flex;
+    align-items: flex-start;
+    width: 200px;
+}
+
+.channel-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.bottom{
+    background-color: #350d36;
+    height: 900px;
+
+}
+
+.channel-chat-messages{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: calc(100% - 200px);
+    background-color:qhite;
+}
+
+.channel-title{
+    display: flex;
+    margin: 0px 50px 0px 20px;
+    align-items: center;
+    border-bottom: 1px solid gray;
+    border-top: 1px solid gray;
+}
+
+.channel-title-display{
+    color: black;
+    font-size: 20px;
+    align-items: center;
+}
+
+.main-container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.chat-messages-box{
+    display: flex;
+    flex-direction: column-reverse;
+    /* width: 100%; */
+    align-items: flex-start;
+    height: 680px;
+    margin: 0px 50px 0px 20px;
+    overflow-y: scroll;
+}
+
+.chat-messages-box-inner{
+    display: flex;
+    flex-direction: column;
+    /* overflow-y: scroll; */
+    width: 100%;
+    height: 100%;
+}
+
+
+.chat-messages-box-intro{
+    display: flex;
+    font-size: 13px;
+    align-items: flex-start;
+    margin-top: 70px;
+    padding: 10px 22px 10px 22px ;
+}
+
+.intro-message-container{
+    display: flex;
+    flex-direction: column;
+    color: black;
+}
+
+.channel-message-list-recipt{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 25px;
+    background-color: aliceblue;
+    width: 100%;
+   
+
+}
+
+.messages-by-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.add-channel{
+    font-size: 20px;
+    min-width: 10px;
+    width: 5px;
+    margin: 20px;
+    padding: 0 16px 3px;
+    height: 25px;
+    background-color: black;
+
+}
+
+.message-box{
+    display: flex;
+    padding: 0 25px 25px 0px;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+}
+
+.inner-message-box{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    width: 100%;
+    border-radius: 5px;
+    height: 100%;
+}
+
+
+.sender-form{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    max-width: 1000%;
+    
+}
+
+
+.delete-message-button{
+    width: 2px;
+    font-size: 10px;
+    height: 15px;
+    position: none;
+}
+
+.add-more-people{
+    color: grey;
+    padding-left: 20px;
+    font-size: 20px;
+}
+
+.all-users{
+    overflow-y: scroll;
+    height: 200px;
+    color: black;
+}
+
+.delete-channel{
+    height: 25px;
+    width: 15px;
+    margin: 0px;
+    font-weight: 0px;
+    margin-left: 15px;
+    min-width: 20px;
+    background-color: black;
+}
+
+.send-message{
+    margin-left: 10px;
+    width: 80px;
+}
+.message-input{
+    width: 800px;
+}
+
+.channel-title-header{
+    padding-left: 20px;
+}
+
+.username-add-button {
+    margin-left: 100px;
+}
+
+.channel-header-message{
+    font-size: 30px;
 }

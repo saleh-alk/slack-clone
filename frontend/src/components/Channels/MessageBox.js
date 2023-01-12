@@ -31,9 +31,23 @@ function MessageBox() {
               {
                   connected: () => console.log('connected'),
                   disconnected: () => console.log('disconnected'),
-                received: ({message, user}) => {
-                    dispatch(messageActions.receiveMessage(message));
-                    dispatch(receiveUser(user))
+                  
+                received: ({type, message, user, id}) => {
+                    
+                switch(type){
+                    case 'RECIEVE_MESSAGE': 
+                        dispatch(messageActions.receiveMessage(message));
+                        dispatch(receiveUser(user))
+                        break;
+                    case 'DESTROY_MESSAGE':
+                        dispatch(messageActions.removeMessage(id))
+                        break;
+                    default:
+                        dispatch(messageActions.receiveMessage(message));
+                        dispatch(receiveUser(user))
+                        break;
+
+                   }
                 }
             }
         );
@@ -53,13 +67,17 @@ function MessageBox() {
 
   return (
     <div className='message-box'>
-        <form onSubmit={handleSubmit}>
-            <input value={body}
-                 placeholder={'Message'}
-                  onChange={(e) => setBody(e.target.value)}  />
-            <button type="submit" className='send-message'>Send</button>
+        <div className='inner-message-box'>
+            <form className='sender-form' onSubmit={handleSubmit}>
+                <input className="message-input"
+                    value={body}
+                    placeholder={'Message'}
+                    onChange={(e) => setBody(e.target.value)}
+                     />
+                <button type="submit" className='send-message'>Send</button>
 
-        </form>
+            </form>
+        </div>
           
     </div>
   )

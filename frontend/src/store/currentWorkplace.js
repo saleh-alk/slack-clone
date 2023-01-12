@@ -22,7 +22,7 @@ export const fetchWorkplace = (workplaceId) => async (dispatch) => {
 const currentWorkplaceReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_WORKPLACE:
-            return { ...state, workplace: action.payload }
+            return { ...state, workplace: action.payload.workplace }
         default:
             return state;
     }

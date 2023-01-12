@@ -15,10 +15,12 @@ class Api::MessagesController < ApplicationController
     @message = Message.new(message_params)
   
     if @message.save!
-      # Your code here
+    
       # render :show , locals: { message: @message }
       ChannelsChannel.broadcast_to @message.channel,
+        
         from_template('api/messages/show', message: @message)
+        
     else
       render json: @message.errors.full_messages, status: 422
     end
@@ -27,8 +29,11 @@ class Api::MessagesController < ApplicationController
   def destroy
     @message = Message.find(params[:id])
     @message.destroy
-    # Your code here
-    render json: nil, status: :ok
+    ChannelsChannel.broadcast_to @message.channel,
+    type: 'DESTROY_MESSAGE',
+    id: @message.id
+
+    # render json: nil, status: :ok
   end
 
   private

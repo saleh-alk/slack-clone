@@ -4,6 +4,7 @@ wrap_parameters include: User.attribute_names + ['password'], except: :index
 
   def index
     @users = User.all
+    # @users = User.find_by(username:params[:usernames])
     render :index
   end
 
@@ -16,6 +17,8 @@ wrap_parameters include: User.attribute_names + ['password'], except: :index
       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
     end
   end
+
+  
 
   private
 

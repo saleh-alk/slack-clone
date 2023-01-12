@@ -4,7 +4,8 @@ import * as workplaceActions from '../../store/workplace';
 import * as sessionActions from '../../store/session';
 import * as subscriberActions from '../../store/workplaceSubscriber';
 import { Link, useParams, Redirect } from "react-router-dom";
-import slackLogo from '../LoginFormPage/slack-logo.png'
+import slackLogo from '../LoginFormPage/icon.png'
+// import slackLogo from '../LoginFormPage/slack-logo.png'
 import './Workplace.css';
 import WorkplaceDetail from './workplaceDetail';
 
@@ -17,18 +18,20 @@ function Workplace() {
     
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-    const workplaces = useSelector(state => state.workplace.workplace)
-    const workplaceSubscribed = useSelector(state => state.workplaceSubscriber.workplaceSubscriber)
-
-    
+    const workplaces = useSelector(state => state.workplace)
+   
+   
+   
 
     useEffect(() => {
         dispatch(sessionActions.receiveUser())
         dispatch(workplaceActions.fetchWorkplaces(sessionUser.id))
-        dispatch(subscriberActions.fetchWorkplaceSubscribers(sessionUser.id))
+        
     }, [])
 
 
+
+    if(!sessionUser) return <Redirect to={"/login"} />
     
     return  (
         <>
@@ -67,7 +70,8 @@ function Workplace() {
                             <div className='p-expanding_workspace_list__workspaces p-expanding_workspace_list__workspaces--no_toggle'>
                                    
                                     {workplaces && Object.values(workplaces).map((workplace, i) => <WorkplaceDetail workplace={workplace} key={i} />)}
-                            {workplaceSubscribed && workplaceSubscribed.map((workplace, i) => <WorkplaceDetail workplace={workplace.workplace} key={i} />)}
+                                   
+                            
 
                 
 
@@ -84,9 +88,10 @@ function Workplace() {
                         <Link to={"/newWorkplace"} className='c-link c-button  c-button--outline p-create_workspace_banner__button c-button--medium'>
                             Create Another Workspace
                         </Link>
-                        
-
+        
                     </div>
+
+                   
                 </div>
 
 

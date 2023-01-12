@@ -11,8 +11,8 @@
 #  workplace_id :bigint           not null
 #
 class Channel < ApplicationRecord
-    validates :name, :private, presence: true
-
+    validates :name,  presence: true
+    validates :private, inclusion:{in:[true, false]}
 
     belongs_to :owner,
     foreign_key: :owner_id,
