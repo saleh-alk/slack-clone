@@ -8,7 +8,7 @@ https://khakis.onrender.com
 
 # Features
 One feature I that was new to me was using action cable to the messenger app. Implementing that was difficult at first, but after understanding how to access the methods from the backend I felt like it was simpler to know how to access the database. I also learned how to broadcast the messages so that the messages show without refreshing.
-![recording2](https://user-images.githubusercontent.com/61297172/212389614-30fc9dcb-ac58-4c73-afe4-dfdc42376579.gif)
+
 
 Another challenge I faced was creating and deleting the channels. I had issues trying to add the channel in to the database and to get a new workplace to create a general channel, but learned that the best way to do it it from the backend so that everytime it creates a new workplace it creates a general channel.
 
