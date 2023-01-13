@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# About the Project
+A clone project of slack. Uses Action Cable to broadcast messages. Allows users working in the same workplace to communicate with each other via action cable.
 
-Things you may want to cover:
+# Link to live site
+https://khakis.onrender.com
 
-* Ruby version
+# two features
+One feature I that was new to me was using action cable to the messenger app. Implementing that was difficult at first, but after understanding how to access the methods from the backend I felt like it was simpler to know how to access the database. I also learned how to broadcast the messages so that the messages show without refreshing.
 
-* System dependencies
+Another challenge I faced was creating and deleting the channels. I had issues trying to add the channel in to the database and to get a new workplace to create a general channel, but learned that the best way to do it it from the backend so that everytime it creates a new workplace it creates a general channel.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

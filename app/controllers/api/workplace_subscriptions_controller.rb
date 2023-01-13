@@ -7,14 +7,16 @@ class Api::WorkplaceSubscriptionsController < ApplicationController
 
     def create
         @user = User.find_by(username: params[:username])
-       
-        @subscription = WorkplaceSubscription.new(user_id: @user.id, workplace_id: params[:workplace_id] )
-        
-        if @subscription.save
-            render :show
-        else
-            render json: { errors: @subscription.errors.full_messages }, status: :unprocessable_entity
+        if @user 
+            @subscription = WorkplaceSubscription.new(user_id: @user.id, workplace_id: params[:workplace_id] )
+            
+            if @subscription.save
+                render :show
+            else
+                render json: { errors: @subscription.errors.full_messages }, status: :unprocessable_entity
+            end
         end
+       
     end
 
     
