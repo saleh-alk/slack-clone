@@ -6,6 +6,7 @@ import { createChannel, destroyChannel, fetchChannels } from '../../store/channe
 import { fetchWorkplace } from '../../store/currentWorkplace.js';
 import Navigation from '../Navigation/index.js';
 import ChannelModal from './ChannelModal.js';
+import ChannelEditModal from './ChatEditModal.js';
 import SubscriptionModal from './SubscriptionModal.js';
 import { BsPlusCircle } from 'react-icons/bs'
 
@@ -17,6 +18,7 @@ function Sidebar() {
     const channels = useSelector(state => state.channel.channels)
     const {workplaceId, channelId} = useParams()
     const [show, setShow] = useState(false)
+    const [editShow, setEditShow] = useState(false)
     const [showSubscription, setSubscriptionShow] = useState(false)
     const workplace = useSelector(state => state.currentWorkplace)
     
@@ -55,6 +57,9 @@ function Sidebar() {
                  <button className='delete-channel' onClick={deleteChannel}>-</button>
                           <div className="add-more-channels" onClick={() => setShow(true)}><button className='add-channel'>+</button></div>
                 <ChannelModal onClose={() => setShow(false)} show={show} />
+
+                          <div className="add-more-channels" onClick={() => setEditShow(true)}><button className='add-channel'>edit</button></div>
+                          <ChannelEditModal onClose={() => setEditShow(false)} editShow={editShow} />
                 
 
             </div>

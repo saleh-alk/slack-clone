@@ -1,6 +1,7 @@
 import { receiveMessages } from './messages';
 import { receiveUsers } from './session';
 import csrfApiFetch from './csrf';
+import { async } from 'regenerator-runtime';
 
 const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL';
 const REMOVE_CHANNEL = 'REMOVE_CHANNEL';
@@ -83,6 +84,24 @@ export const createChannel = (channel) => async dispatch => {
         dispatch(receiveChannel(channel))
     }
 
+}
+
+export const updateChannel = (data) => async dispatch => {
+    const { channelId, ownerId, name, isPrivate, workplaceId} = data
+    const res = await csrfApiFetch(`/api/channels/${channelId}`, {
+        method: "PUT",
+        body: JSON.stringify({
+            owner_id: ownerId,
+            name: name,
+            private: isPrivate,
+            workplace_id: parseInt(workplaceId)
+        })
+    })
+
+    if (res.ok){
+        const channel = await res.json()
+        dispatch(receiveChannel(channel))
+    }
 }
 
 export const destroyChannel= channelId => dispatch => {

@@ -41,7 +41,7 @@ const ChannelModal = props => {
             />
           </label>
 
-              <button  type="submit" className='close-channel-modal' >Create</button>
+              <button  type="submit" className='close-channel-modal' >Edit</button>
           </form>
     
         </div>
