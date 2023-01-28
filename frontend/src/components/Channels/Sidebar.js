@@ -84,13 +84,14 @@ function Sidebar() {
 
                 </div>
                 <div className="add-more-channels" onClick={() => setShow(true)}><i class="fa-solid fa-plus"></i>Add a Channel</div>
+                          <ChannelModal onClose={() => setShow(false)} show={show} />
 
             </div>
             
                   </div>
               </div>
                 <br></br>
-              <div className="add-more-people" onClick={() => setSubscriptionShow(true)}><i class="fa-solid fa-plus"></i>  Add teammates</div>
+              <div className="add-more-people" onClick={() => setSubscriptionShow(true)}><i class="fa-solid fa-plus"></i> Add teammates</div>
               
               <SubscriptionModal onClose={() => setSubscriptionShow(false)} showSubscription={showSubscription} />
               <div className="bottom"></div>                
