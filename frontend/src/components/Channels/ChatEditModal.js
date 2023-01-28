@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import { updateChannel } from '../../store/channel'
+import { useHistory, useParams } from 'react-router-dom'
+import { fetchChannels, updateChannel } from '../../store/channel'
 
 const ChatEditModal = props => {
 
@@ -11,6 +11,8 @@ const ChatEditModal = props => {
     const [name, setName] = useState("")
     const [isPrivate, setIsPrivate] = useState(true)
     const ownerId = useSelector(state => state.session.user.id);
+    const history = useHistory()
+    
     if (!props.editShow) {
         return null
     }
@@ -20,6 +22,8 @@ const ChatEditModal = props => {
         e.preventDefault();
 
         dispatch(updateChannel({ channelId, ownerId, name, isPrivate, workplaceId }))
+        
+        dispatch(fetchChannels(workplaceId))
         props.onClose()
     }
 
@@ -29,9 +33,12 @@ const ChatEditModal = props => {
 
 
             <div className='modal-content'>
-                <button onClick={props.onClose}>close</button>
+                <div className='edit-channel-desc'>
+                    <div className='edit-name'>Channel Name</div>
+                    <div onClick={props.onClose} className="close-modal"><i class="fa-solid fa-x"></i></div>
+                </div>
                 <form onSubmit={handleSubmit}>
-                    <label> Channel Name
+                    <label> 
                         <input
                             type="text"
                             placeholder='General'
@@ -41,7 +48,7 @@ const ChatEditModal = props => {
                         />
                     </label>
 
-                    <button type="submit" className='close-channel-modal' >Create</button>
+                    <button type="submit" className='close-channel-modal' >Save</button>
                 </form>
 
             </div>

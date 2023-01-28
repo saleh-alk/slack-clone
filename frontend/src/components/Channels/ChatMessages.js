@@ -6,7 +6,7 @@ import csrfFetch from '../../store/csrf'
 import { useParams } from 'react-router-dom';
 import ChatBoxHeader from './ChatBoxHeader';
 import MessageBox from './MessageBox';
-
+import ChannelEditModal from './ChatEditModal.js';
 
 function ChatMessages() {
     
@@ -15,8 +15,10 @@ function ChatMessages() {
     //const messages = useSelector(messageActions.receiveMessages)
     const [messages, setMessages] = useState([])
     const dispatch = useDispatch()
+    const [editShow, setEditShow] = useState(false)
     const {channelId} = useParams()
     const {workplaceId} = useParams()
+    const channels = useSelector(state => state.channel.channels)
     const m = useSelector(messageActions.getMessages(+channelId))
 
   
@@ -45,7 +47,9 @@ function ChatMessages() {
           <div className='chat-message-box-intro'>
             <div className='img-intro-message-box'></div>
             <div className='intro-message-container'>
-              This is the very begining of the channel
+              <div>This is the very begining of the&nbsp; </div> {channels && Object.values(channels)?.map((channel) => channelId == channel.id && <strong><div> {channel.name}&nbsp; </div></strong>)} channel. 
+              {/* <div className="add-more-channels" onClick={() => setEditShow(true)}>Edit Channel</div>
+              <ChannelEditModal onClose={() => setEditShow(false)} editShow={editShow} /> */}
             </div>
           </div>
 

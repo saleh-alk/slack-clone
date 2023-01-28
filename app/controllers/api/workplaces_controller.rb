@@ -2,7 +2,7 @@ class Api::WorkplacesController < ApplicationController
     def index
     
         @user = User.find_by(id: params[:user_id])
-        @workplaces = @user.workplaces || @user.subscribed_workplaces
+        @workplaces = @user.workplaces[0] ? @user.workplaces : @user.subscribed_workplaces
         
         render :index
     end
@@ -22,6 +22,12 @@ class Api::WorkplacesController < ApplicationController
     def show
         @workplace = Workplace.find_by(id: params[:id])
         render :show
+    end
+
+    def destroy
+        @workplace = Workplace.find_by(id: params[:id])
+        @workplace.destroy
+        render json: nil, status: :ok
     end
 
    

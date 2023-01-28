@@ -20,7 +20,7 @@ function Workplace() {
     const sessionUser = useSelector(state => state.session.user);
     const workplaces = useSelector(state => state.workplace)
    
-   
+    console.log(workplaces)
    
 
     useEffect(() => {

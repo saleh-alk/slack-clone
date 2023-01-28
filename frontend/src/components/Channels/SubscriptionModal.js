@@ -15,6 +15,7 @@ function SubscriptionModal(props) {
     const [name, setName] = useState("")
     const [isPrivate, setIsPrivate] = useState(true)
     const ownerId = useSelector(state => state.session.user.id);
+    const workplace = useSelector(state => state.currentWorkplace.workplace)
     // const user = useSelector(receiveUser())
     // const users = useSelector()
     
@@ -40,23 +41,25 @@ function SubscriptionModal(props) {
 
 
           <div className='modal-content'>
-              <button onClick={props.onClose}>close</button>
+              <div className='edit-channel-desc'>
+                
+                  <div className='edit-name'>Add a teammate to the {workplace ? workplace.name : <></>}  workplace </div>
+                  <div onClick={props.onClose} className="close-modal"><i class="fa-solid fa-x"></i></div>
+              </div>
               <form onSubmit={handleSubmit}>
-                  <label> Username
+                  <label>
                       <input
                           type="text"
-                          placeholder='demo-lition'
+                          placeholder='Demo2'
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                           required
                       />
                   </label>
-                  <button type="submit" className='close-channel-modal' >Submit</button>
+
+                  <button type="submit" className='close-channel-modal' disabled={!name}>Send</button>
               </form>
 
-                <div className='all-users'>
-                    
-                </div>
           </div>
 
 

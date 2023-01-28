@@ -36,6 +36,15 @@ function WorkplaceDetail(props) {
         } 
     }
 
+    const deleteClick = () => {
+        if(props.workplace.id){
+            dispatch(currentWorkplaceActions.destroyWorkplace(props.workplace.id))
+        }
+    }
+
+
+
+
     return (
         <>
             
@@ -57,6 +66,7 @@ function WorkplaceDetail(props) {
                             Open
                         </span>
                         <button className="add-workplace-button" onClick={onClick}><BsFillArrowRightCircleFill /></button>
+                        <button className='add-workplace-button' onClick={deleteClick}>delete</button>
 
                     </div>
     

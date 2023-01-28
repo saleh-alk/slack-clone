@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, Redirect, useHistory, useParams } from 'react-router-dom';
+import { NavLink, Redirect, useHistory, useParams, Link } from 'react-router-dom';
 import { createChannel, destroyChannel, fetchChannels } from '../../store/channel.js';
-import { fetchWorkplace } from '../../store/currentWorkplace.js';
+import { fetchWorkplace, receiveWorkplace } from '../../store/currentWorkplace.js';
 import Navigation from '../Navigation/index.js';
 import ChannelModal from './ChannelModal.js';
 import ChannelEditModal from './ChatEditModal.js';
@@ -18,9 +18,16 @@ function Sidebar() {
     const channels = useSelector(state => state.channel.channels)
     const {workplaceId, channelId} = useParams()
     const [show, setShow] = useState(false)
-    const [editShow, setEditShow] = useState(false)
+
+    
     const [showSubscription, setSubscriptionShow] = useState(false)
-    const workplace = useSelector(state => state.currentWorkplace)
+
+    
+  
+
+    const workplace = useSelector(state => state.currentWorkplace.workplace)
+
+    
     
 
     const dispatch = useDispatch();
@@ -28,17 +35,17 @@ function Sidebar() {
     
     
     
-    const deleteChannel = (e) => {
-        e.preventDefault()
-        dispatch(destroyChannel(channelId))
 
-    }
    
 
     useEffect(() => {
         dispatch(fetchChannels(workplaceId));
         dispatch(fetchWorkplace(workplaceId))
+
     }, [workplaceId]);
+
+
+
 
   return (
     <>
@@ -47,46 +54,44 @@ function Sidebar() {
             <div className="inner-container">
             <div className="channel-contaier"> 
             <div className="side-header">
-                <div>Workplace</div>
+                <div>{workplace ? workplace.name : <></>}</div>
             </div>
             <div className="side-channel-title">
                 
             </div>
             <div className="side-channel-title">
                  <div className='channel-title-header'>Channel</div>
-                 <button className='delete-channel' onClick={deleteChannel}>-</button>
-                          <div className="add-more-channels" onClick={() => setShow(true)}><button className='add-channel'>+</button></div>
-                <ChannelModal onClose={() => setShow(false)} show={show} />
-
-                          <div className="add-more-channels" onClick={() => setEditShow(true)}><button className='add-channel'>edit</button></div>
-                          <ChannelEditModal onClose={() => setEditShow(false)} editShow={editShow} />
+                         
                 
 
             </div>
             <div className="side-channels">
                 <div className="side-channel-list">
-                    <div className="hashtag"></div>
-                    <div>
+                    
+                    
                           {channels ? Object.values(channels).map(({ id, name, isPrivate, ownerId }) => (
                               <div key={id}>
-                                  <NavLink className="channel-links" to={currentUserId ? `/${workplaceId}/channels/${id}` : '/login'}>
-                                      #   {name}
-                                  </NavLink>
+                                  <Link className="channel-links" to={currentUserId ? `/${workplaceId}/channels/${id}` : '/login'}>
+                                      <i class="fa-solid fa-hashtag"></i>   {name}
+                                  </Link>
                                   
                               </div>
                                
                           )) : <></>}
-                    </div>
+
+                        
+                    
 
                 </div>
+                <div className="add-more-channels" onClick={() => setShow(true)}><i class="fa-solid fa-plus"></i>Add a Channel</div>
 
             </div>
             
                   </div>
               </div>
                 <br></br>
-              <div className="add-more-people">Add by Username</div>
-              <div className="add-more-channels" onClick={() => setSubscriptionShow(true)}><button className='add-channel username-add-button'>+</button></div>
+              <div className="add-more-people" onClick={() => setSubscriptionShow(true)}><i class="fa-solid fa-plus"></i>  Add teammates</div>
+              
               <SubscriptionModal onClose={() => setSubscriptionShow(false)} showSubscription={showSubscription} />
               <div className="bottom"></div>                
          

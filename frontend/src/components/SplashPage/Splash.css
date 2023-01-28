@@ -329,3 +329,34 @@ a {
     letter-spacing: .8px;
     
 }
+
+.logo-name{
+    font-family: Slack-Circular-Pro, "Helvetica Neue", Helvetica, "Segoe UI", Tahoma, Arial, sans-serif;
+    font-weight: 700;
+    color: white;
+    font-size: 70px;
+    margin-left: 10px;
+
+}
+
+.footer-splash{
+    background-color: #f4ede4;
+    width: 100%;
+    height: 300px;
+}
+
+.portfolio-links{
+    font-size: 50px;
+    margin-left: 800px;
+}
+
+.Linkedin-link{
+    margin-left: 20px;
+}
+
+.my-name{
+    font-family: Slack-Circular-Pro, "Helvetica Neue", Helvetica, "Segoe UI", Tahoma, Arial, sans-serif;
+    margin-left: 800px;
+    font-weight: 800;
+
+}

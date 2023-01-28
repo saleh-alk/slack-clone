@@ -29,7 +29,10 @@ const ChannelModal = props => {
       
          
         <div className='modal-content'>
-        <button onClick={props.onClose}>close</button>
+          <div className='create-channel-header'>
+            <div className="create-channel-head" >Create a channel</div>
+            <div onClick={props.onClose} className="close-modal create-close"><i class="fa-solid fa-x"></i></div>
+          </div>
           <form onSubmit={handleSubmit}>
             <label> Channel Name
               <input
@@ -41,7 +44,7 @@ const ChannelModal = props => {
             />
           </label>
 
-              <button  type="submit" className='close-channel-modal' >Edit</button>
+              <button  type="submit" className='close-channel-modal' >Create</button>
           </form>
     
         </div>

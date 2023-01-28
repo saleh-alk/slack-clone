@@ -2,9 +2,11 @@ import csrfFetch from './csrf';
 
 
 
+
 const SET_CURRENT_WORKPLACE = 'workplace/setCurrentWorkplace';
 const RECEIVE_WORKPLACE = "RECEIVE_WORKPLACE"
 export const RECEIVE_WORKPLACES = "workplace/RECEIVE_WORKPLACES"
+const REMOVE_WORKPLACE = 'REMOVE_WORKPLACE'
 
 
 const setCurrentWorkplace = (workplace) => {
@@ -26,6 +28,14 @@ export const receiveWorkplace = (workplace) => ({
     payload: workplace
 })
 
+
+export const removeWorkplace = workplaceId => {
+    return {
+        type: REMOVE_WORKPLACE,
+        workplaceId
+    };
+};
+
 export const getWorkplaces = (store) => {
     if (store?.workplace) {
         return Object.values(store.workplace)
@@ -37,7 +47,7 @@ export const getWorkplaces = (store) => {
 
 
 export const fetchWorkplaces = (userId) => async (dispatch) => {
-    const res = await fetch(`/api/workplaces?userId=${userId}`)
+    const res = await csrfFetch(`/api/workplaces?userId=${userId}`)
 
     if (res.ok) {
         const workplaces = await res.json()
@@ -56,10 +66,21 @@ export const fetchWorkplace = (workplaceId) => async (dispatch) => {
     }
 }
 
+
+export const destroyWorkplace = workplaceId => async dispatch => {
+    return csrfFetch(`/api/workplaces/${workplaceId}`, {
+        method: 'DELETE'
+    }).then(() => dispatch(removeWorkplace(workplaceId)));
+};
+
 const workplaceReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_WORKPLACES:
             return {...state, ...action.payload }
+        case REMOVE_WORKPLACE:
+            const newState = { ...state };
+            delete newState.workplaces[action.workplaceId];
+            return newState;
         default:
             return state;
     }
