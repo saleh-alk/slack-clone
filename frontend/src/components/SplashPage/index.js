@@ -1,7 +1,7 @@
 import React from 'react'
 import './Splash.css';
 import { Link } from "react-router-dom";
-import slackLogo from '../LoginFormPage/slack-logo.png'
+import slackLogo from '../LoginFormPage/icon.png'
 import slackDisplay from './splashDisplay.png'
 
 function Splash() {
@@ -15,6 +15,7 @@ function Splash() {
                       <div className='c-nav__row o-nav--primary o-content-container'>
                           <div className='c-slacklogo'>
                             <img src={slackLogo} height="75"></img>
+                              <div className='logo-name'>Khakis</div>
                           </div>
 
                           <div className='c-nav--signed-out'>
@@ -35,6 +36,7 @@ function Splash() {
                         <div className='c-billboard__illustration'>
                         <img src={slackDisplay} height="300">
                         </img>
+                        
                         </div>
                     </div>
 
@@ -49,11 +51,16 @@ function Splash() {
                          
 
                     </header>
-
-                    
-
                 </section>
             </main>
+
+            <footer className='footer-splash'>
+                <div className='my-name'>By Saleh Alkaheli</div>
+                <div className='portfolio-links'>
+                  <a href="https://github.com/saleh-alk" target="_blank"><i class="fa-brands fa-github"></i></a>
+                  <a href="https://www.linkedin.com/in/saleh-alkaheli-97971815a/" target="_blank" className='Linkedin-link'><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </footer>
         </body>
     </>
   )

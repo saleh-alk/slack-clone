@@ -46,6 +46,7 @@ a{
 }
 .sent-time{
     font-size: 10px;
+    margin-left: 20px;
 }
 
 .modal{
@@ -58,6 +59,7 @@ a{
     display: flex;
     align-items: center;
     justify-content: center;
+   
 
 }
 
@@ -67,6 +69,7 @@ a{
     height: 400px;
     background-color: white;
     position: absolute;
+    border-radius: 10px;
 }
 
 .create-channel {
@@ -89,7 +92,7 @@ a{
     text-decoration: none;
     top: 50px;
     height: 20px;
-    padding: 40px;
+    padding: 10px;
     font-size: 20px;
 }
 
@@ -97,24 +100,32 @@ a{
         width: 5px;
         font-size: 20px;
         background-color: white;
-        color: black;
+        color: white;
+        padding: 20px;
         
         border-width: 10px;
         border-color: black;
         border-width: 20px;
         border: 1px solid gray;
         height: 30px;
+        background-color: #007a5a;
     
 }
 
 .side-main{
-    background-color: #350d36;
+    
+    background-color: #3F0E40;
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 200px;
     min-width: 300px;
 }
+
+
+
+
+
 
 .side-header{
     border-bottom: 1px solid grey;
@@ -124,6 +135,7 @@ a{
     color: white;
     height: 40px;
     width: 300px;
+    font-weight: 900;
 
 }
 
@@ -147,16 +159,17 @@ a{
 .side-channels{
     display: flex;
     flex-direction: column;
-    width: 200px;
-    align-items: flex-start;
+    /* width: 200px; */
+    /* align-items: flex-start; */
     
 
 }
 
 .side-channel-list{
     display: flex;
-    align-items: center;
+    align-items: left;
     width: 100%;
+    ;
 
 }
 
@@ -203,8 +216,19 @@ a{
 
 .channel-title-display{
     color: black;
-    font-size: 20px;
+    font-size: 10px;
     align-items: center;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 5px;
+
+}
+
+.channel-title-display:hover {
+
+    background-color: lightgray;
+    border-radius: 5px;
+
 }
 
 .main-container{
@@ -218,7 +242,7 @@ a{
     flex-direction: column-reverse;
     /* width: 100%; */
     align-items: flex-start;
-    height: 480px;
+    height: 680px;
     margin: 0px 50px 0px 20px;
     overflow-y: scroll;
 }
@@ -242,16 +266,16 @@ a{
 
 .intro-message-container{
     display: flex;
-    flex-direction: column;
     color: black;
+    margin-bottom: 300px;
 }
 
 .channel-message-list-recipt{
     display: flex;
     flex-direction: column;
     padding: 10px 25px;
-    background-color: aliceblue;
     width: 100%;
+    
     
    
 
@@ -334,9 +358,11 @@ a{
 .send-message{
     margin-left: 10px;
     width: 80px;
+    
 }
 .message-input{
-    width: 800px;
+    width: 900px;
+    
 }
 
 .channel-title-header{
@@ -349,4 +375,218 @@ a{
 
 .channel-header-message{
     font-size: 30px;
+}
+
+.side-channel-list{
+    display: flex;
+    flex-direction: column;
+}
+
+.channel-links{
+    padding: 0px;
+    text-align: left;
+    margin-left: 30px;
+    
+}
+
+.add-more-channels{
+    color: grey;
+    margin: 30px;
+    cursor: pointer;
+
+}
+
+.edit-channel-desc{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    margin-left: 15px;
+    
+}
+
+.close-modal{
+    cursor: pointer;
+    color: gray;
+}
+
+.close-modal:hover{
+    background-color: #F8F8F8;
+    color: black;
+    
+}
+
+.edit-name{
+    font-size: 20px;
+    font-weight: 900;
+}
+
+
+.edit-delete{
+    display: none;
+}
+
+.message-sent:hover .edit-delete{
+    display: block;
+    position: absolute;
+    right: 250px;
+    width: 50px;
+    font-size: large;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+    background-color: white;
+
+}
+
+.message-sent:hover{
+    background-color: lightgray;
+}
+
+.message-rec{
+    display: flex;
+    
+}
+
+
+
+.side-header{
+    padding-left: 30px;
+}
+
+
+.fa-angle-down{
+    font-size: 15px;
+
+}
+
+.detail-modal{
+    height: 600px;
+}
+
+.channel-name{
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    font-size: 15px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    /* width: 400px; */
+    height: 80px;
+    background-color: white;
+    cursor: pointer;
+
+}
+
+.channel-name:hover{
+    background-color: #F8F8F8;
+}
+
+.channel-name-header{
+    margin-top: 5px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+
+.channel-name-modal{
+    /* margin-left: 10px; */
+}
+
+.edit-button-modal{
+    color: rgba(var(--sk_highlight, 18, 100, 163), 1);
+    font-weight: 700;
+}
+
+
+
+
+
+.top-box-detail-modal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgray;;
+    padding: 30px 40px;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.detail-modal{
+    background-color: #F8F8F8;
+}
+
+.stuff-in-between{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+.delete-channel-button{
+    display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 30px;
+        margin: 30px;
+        font-size: 15px;
+        border: 1px solid grey;
+        border-radius: 10px;
+        height: 80px;
+        background-color: white;
+        color: #E11E5A;
+        font-weight: 800;
+        cursor: pointer;
+}
+
+.delete-channel-button:hover{
+    background-color: #F8F8F8;
+    color: black;
+}
+
+
+.create-channel-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+.create-channel-head{
+    font-size: 28px;
+    font-weight: 900;
+    color: black;
+}
+
+
+.side-header{
+    height: 80px;
+}
+
+.side-header div{
+    padding-top: 20px;
+}
+
+.bottom {
+    background-color: #3F0E40;
+    ;
+}
+
+
+.side-header:hover{
+    background-color: #3F0E40;
+}
+
+.channel-message-list-recipt:hover {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.add-more-people{
+    font-size: 15px;
+    margin-left: 10px;
+    cursor: pointer;
 }

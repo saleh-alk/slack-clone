@@ -3,6 +3,6 @@ json.array!(@workplaces) do |workplace|
     #     json.partial! 'workplace', workplace: workplace
     # end
   json.extract! workplace, :id, :name, :url, :admin_id
-  json.first_channel workplace.channels.first.id
+  # json.first_channel workplace.channels.first.id
   
 end

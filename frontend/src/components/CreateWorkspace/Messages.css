@@ -174,3 +174,7 @@ input[type='text'] {
     -webkit-box-shadow: 0px 0px 4px #943b3b;
     box-shadow: 0px 0px 4px #9a3939;
 }
+
+.fa-paper-plane-top{
+    background-color: white;
+}
