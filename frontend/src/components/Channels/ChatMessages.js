@@ -59,7 +59,7 @@ function ChatMessages() {
       </div>
 
        <MessageBox />
-    
+              
         {/* <ul>{m.map((message, i) => <Message message={message} key={i} />) }
             
         </ul> */}
