@@ -1,7 +1,12 @@
 # README
 
 # About the Project
-A clone project of slack. Uses Action Cable to broadcast messages. Allows users working in the same workplace to communicate with each other via action cable.
+This project is a full stack clone of slack web application that I made using Ruby on Rails and React. For this project, I created 4 features I thought that were a very important aspect of slack. It's a messaging website that allows multiple users to chat and message in the same workplace (group chat). It also allows anyone in that group to create or delete a specific channel in that workplace. Included in the login page is a demo user to allow anyone to play around with the application without having to signup a new account. After logging in it presents you with a list of workplace that account is in, where you have the option to create a workplace. After the workplace is created their is an option to delete the workplace or to join it. If you choose to join it you will see a list of channels you can click on. After selecting your channel, you can now chat with anyone in the workplace in that specific channel in live time. Finally, you can also add as many users as you want by username.
+
+
+# Technologies
+
+Javascript, Ruby on Rails, HTML & CSS, Node.js, React, Action Cable, Websockets, and postgresql
 
 # Link to live site
 https://khakis.onrender.com
@@ -10,8 +15,4 @@ https://khakis.onrender.com
 One feature I that was new to me was using action cable to the messenger app. Implementing that was difficult at first, but after understanding how to access the methods from the backend I felt like it was simpler to know how to access the database. I also learned how to broadcast the messages so that the messages show without refreshing.
 
 
-Another challenge I faced was creating and deleting the channels. I had issues trying to add the channel in to the database and to get a new workplace to create a general channel, but learned that the best way to do it it from the backend so that everytime it creates a new workplace it creates a general channel.
 
-# Technologies
-
-For my message model I implemented action cables to broadcast the it's' data, so whenever the user sends a message, it displays the body of the message without having to refresh from both sides. I also used redis to host websockets on the live server. I used rails for the backend and React.js for the frontend.
