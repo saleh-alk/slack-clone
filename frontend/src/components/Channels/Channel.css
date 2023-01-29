@@ -242,7 +242,7 @@ a{
     flex-direction: column-reverse;
     /* width: 100%; */
     align-items: flex-start;
-    height: 580px;
+    height: 480px;
     margin: 0px 50px 0px 20px;
     overflow-y: scroll;
 }
