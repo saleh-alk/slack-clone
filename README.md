@@ -12,7 +12,7 @@ Javascript, Ruby on Rails, HTML & CSS, Node.js, React, Action Cable, Websockets,
 https://khakis.onrender.com
 
 # Features
-One feature I that was new to me was using action cable to the messenger app. Implementing that was difficult at first, but after understanding how to access the methods from the backend I felt like it was simpler to know how to access the database. I also learned how to broadcast the messages so that the messages show without refreshing.
+One feature I that was new to me was using action cable to broadcast the meassages for multiple users. Implementing that was difficult at first, but after some reading on websockets everything waas simple. Another feature I included was the workplace, where any user can create a space to chat. For each chat I included a channel feature, so each workplace have specific chat groups for different discussions. I also included a form to add other users to the workplace.
 
 
 
