@@ -360,3 +360,7 @@ a {
     font-weight: 800;
 
 }
+
+.is-down-scroll{
+    overflow-y: scroll;
+}
