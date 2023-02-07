@@ -154,7 +154,7 @@ html {
     grid-column-end: p-workspace__channel_sidebar;
 }
 
-form{
+.create-workplace-form{
   margin-top: 200px;
   margin-right: 180px;
   
