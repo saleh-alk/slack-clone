@@ -76,7 +76,7 @@ function Splash() {
                       
                       <div className='bring-team-section'>
                           <div>Bring your team together</div>
-                          <p>At the heart of Slack are channels: organized spaces for everyone and everything you need for work. In channels, it’s easier to connect across departments, offices, time zones and even other companies.</p>
+                          <p>At the heart of Khakis are channels: organized spaces for everyone and everything you need for work. In channels, it’s easier to connect across departments, offices, time zones and even other companies.</p>
                       </div>
 
                       <video className='second-video'>
@@ -87,7 +87,7 @@ function Splash() {
 
                     <div className='choose-how-work'>
                           <div>Choose how you want to work</div>
-                          <p>In Slack, you’ve got all the flexibility to work when, where and how it’s best for you. You can easily chat, send audio and video clips, or hop on a huddle to talk things out live.</p>
+                          <p>In Khakis, you’ve got all the flexibility to work when, where and how it’s best for you. You can easily chat, send audio and video clips, or hop on a huddle to talk things out live.</p>
                     </div>
 
                     <video className='third-video'>
@@ -98,21 +98,21 @@ function Splash() {
 
                     <div className='move-faster'>
                           <div>Move faster with your tools in one place</div>
-                          <p>With your other work apps connected to Slack, you can work faster by switching tabs less. And with powerful tools like Workflow Builder, you can automate away routine tasks.</p>
+                          <p>With your other work apps connected to Khakis, you can work faster by switching tabs less. And with powerful tools like Workflow Builder, you can automate away routine tasks.</p>
 
                     </div>
 
             </div>
 
             <div className='teams'>
-                      <div className='team-header'>Teams large and small rely on Slack</div>
-                      <p className='team-p'>Slack securely scales up to support collaboration at the world’s biggest companies.</p>
+                      <div className='team-header'>Teams large and small rely on Khakis</div>
+                      <p className='team-p'>Khakis securely scales up to support collaboration at the world’s biggest companies.</p>
 
                       <div className='team-percentages'>
 
                         <div className='teams-info'>
                             <div className='percentage'>85%</div>
-                            <div className='about-team'>of users say Slack has improved communication*</div>
+                            <div className='about-team'>of users say Khakis has improved communication*</div>
                         </div>
 
                           <div className='teams-info'>
