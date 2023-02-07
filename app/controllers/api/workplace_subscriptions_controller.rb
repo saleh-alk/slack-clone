@@ -11,12 +11,18 @@ class Api::WorkplaceSubscriptionsController < ApplicationController
             @subscription = WorkplaceSubscription.new(user_id: @user.id, workplace_id: params[:workplace_id] )
             
             if @subscription.save
-                render :show
+                #render :show
             else
                 render json: { errors: @subscription.errors.full_messages }, status: :unprocessable_entity
             end
         end
        
+    end
+
+    def show
+        @subs = WorkplaceSubscription.where("workplace_id = #{params[:id]}")
+
+        render :show
     end
 
     

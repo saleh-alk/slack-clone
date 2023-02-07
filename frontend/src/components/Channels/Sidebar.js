@@ -35,7 +35,11 @@ function Sidebar() {
     
     
     
+    const handleWorkplace = (e) => {
+        e.preventDefault()
+        history.push('/workplace')
 
+    }
    
 
     useEffect(() => {
@@ -54,7 +58,7 @@ function Sidebar() {
             <div className="inner-container">
             <div className="channel-contaier"> 
             <div className="side-header">
-                <div>{workplace ? workplace.name : <></>}</div>
+                <div className = "workplace-button" onClick={handleWorkplace}>{workplace ? workplace.name : <></>}</div>
             </div>
             <div className="side-channel-title">
                 

@@ -28,12 +28,21 @@ export const getWorkplaces = (store) => {
 
 
 export const fetchWorkplaceSubscribers = (userId) => async (dispatch) => {
-    const res = await fetch(`/api/workplace_subscriptions?userId=${userId}`)
+    const res = await csrfFetch(`/api/workplace_subscriptions?userId=${userId}`)
 
     if (res.ok) {
         const workplaceSubscribed = await res.json()
         dispatch(receiveWorkplaceSubscribers(workplaceSubscribed))
         return workplaceSubscribed
+    }
+}
+
+export const fetchSubscribers = (workplaceId) => async (dispatch) => {
+    const res = await csrfFetch(`/api/workplace_subscriptions/${workplaceId}`)
+
+    if(res.ok){
+        const subscribers = await res.json()
+        dispatch(receiveWorkplaceSubscribers(subscribers))
     }
 }
 

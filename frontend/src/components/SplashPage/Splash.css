@@ -340,14 +340,18 @@ a {
 }
 
 .footer-splash{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #f4ede4;
     width: 100%;
     height: 300px;
+    margin-top: 20px;
 }
 
 .portfolio-links{
     font-size: 50px;
-    margin-left: 800px;
+    
 }
 
 .Linkedin-link{
@@ -356,7 +360,203 @@ a {
 
 .my-name{
     font-family: Slack-Circular-Pro, "Helvetica Neue", Helvetica, "Segoe UI", Tahoma, Arial, sans-serif;
-    margin-left: 800px;
+
     font-weight: 800;
 
+}
+
+.body-of-splash{
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    /* overflow: scroll; */
+
+}
+
+
+.trusted-by{
+   
+    display: flex;
+    flex-direction: column;
+    background-color: #f4ede4;
+    align-items: center;
+}
+
+
+.trusted-by-header{
+    margin-top: 70px;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.companies-name{
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+}
+
+.logos{
+    margin-left: 30px;
+}
+
+.first-video{
+    
+    height: 400px;
+    margin-right: 800px;
+}
+
+.bring-team-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bring-team-section div{
+  
+    line-height: 1.1875;
+    letter-spacing: -.3px;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.bring-team-section p{
+    width: 300px;
+    font-family: Slack-Circular-Pro, "Helvetica Neue", Helvetica, "Segoe UI", Tahoma, Arial, sans-serif;
+        font-weight: 400;
+        line-height: 1.4444;
+        letter-spacing: normal;
+        font-size: 1.125rem;;
+}
+
+.second-video{
+    height: 400px;
+        margin-left: 800px;
+}
+
+.choose-how-work div{
+        line-height: 1.1875;
+            letter-spacing: -.3px;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+}
+
+.choose-how-work p {
+        width: 300px;
+            font-family: Slack-Circular-Pro, "Helvetica Neue", Helvetica, "Segoe UI", Tahoma, Arial, sans-serif;
+            font-weight: 400;
+            line-height: 1.4444;
+            letter-spacing: normal;
+            font-size: 1.125rem;
+            ;
+
+}
+
+.third-video{
+     height: 400px;
+     margin-top: 20px;
+    margin-right: 800px;
+}
+
+.move-faster div{
+            line-height: 1.1875;
+                letter-spacing: -.3px;
+                font-size: 2rem;
+                font-weight: bold;
+                margin-top: 20px;
+                margin-bottom: 20px;
+
+}
+
+.move-faster p{
+            width: 300px;
+                font-family: Slack-Circular-Pro, "Helvetica Neue", Helvetica, "Segoe UI", Tahoma, Arial, sans-serif;
+                font-weight: 400;
+                line-height: 1.4444;
+                letter-spacing: normal;
+                font-size: 1.125rem;
+                ;
+
+}
+
+.teams{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-header{
+    margin-top: 60px;
+   
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.team-p{
+    font-size: 20px;
+    font-weight: 400px;
+}
+
+.team-percentages{
+    display: flex;
+    flex-direction: row;
+}
+
+.teams-info{
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    margin-right: 80px;
+}
+
+.percentage{
+    font-size: 70px;
+    font-weight: 800px;
+    color: #541554;
+}
+.about-team{
+    width: 180px;
+    font-weight: 400px;
+}
+
+
+.fourth-video{
+    width: 600px;
+        border-top-right-radius: 500px;
+            border-bottom-right-radius: 500px;
+            margin-right: 800px;
+            margin-top: 30px;
+}
+
+
+.quote-by-person{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quote-by-person p {
+    margin-top: 10px;
+    width: 350px;
+    font-size: 30px;
+}
+
+.author-of-quote{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+.role-of-author{
+    font-size: 17px;
+}
+
+
+.is-down-scroll{
+    overflow-y: auto;
 }
