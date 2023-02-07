@@ -46,7 +46,7 @@ function SubscriptionModal(props) {
                   <div className='edit-name'>Add a teammate to the {workplace ? workplace.name : <></>}  workplace </div>
                   <div onClick={props.onClose} className="close-modal"><i class="fa-solid fa-x"></i></div>
               </div>
-              <form onSubmit={handleSubmit}>
+              <form className= "add-people-form" onSubmit={handleSubmit}>
                   <label>
                       <input
                           type="text"

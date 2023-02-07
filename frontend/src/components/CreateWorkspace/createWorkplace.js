@@ -59,7 +59,7 @@ function CreateWorkplace(){
                             <div className='p-top_nav'></div>
                             
                     <div className='form-for-create-workplace'> 
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit} className="create-workplace-form">
                             <label>
                                 What do you want to call this workplace?
                                 

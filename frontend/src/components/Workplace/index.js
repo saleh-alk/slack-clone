@@ -34,18 +34,18 @@ function Workplace() {
     
     return  (
         <>
-        {/* <body className='full_height get_started'> */}
+        
         
         
             <div className='get_started_app_root'>
-                <header className="p-refreshed_page__header">
-                    <div className="left-col"> </div>
+                
+                   
                     <div className="center-col">
                         <Link to={"/"}><img src={slackLogo} height="50"></img></Link>
                         <div className='icon-name-header'>khakis</div>
                     </div>
-                    <div className="right-col"></div>
-                </header>
+                   
+              
 
                 <div className='p-refreshed_page'>
                     <h1 className='p-workspaces_view__heading p-refreshed_page__heading'>
@@ -56,8 +56,8 @@ function Workplace() {
                     </div>
                 </div>
 
-                <div className="p-workspaces_view__container">
-                   <section>
+               
+                   <section className='workplace-box'>
                         <div className='p-workspaces_list__panel'>
                             <div className='p-workspaces_list__panel'>
                         
@@ -66,14 +66,9 @@ function Workplace() {
                                 
                             </div>
                         <div className='p-expanding_workspace_list'>
-                            <div className='p-expanding_workspace_list__header'></div>
                             <div className='p-expanding_workspace_list__workspaces p-expanding_workspace_list__workspaces--no_toggle'>
                                    
                                     {workplaces && Object.values(workplaces).map((workplace, i) => <WorkplaceDetail workplace={workplace} key={i} />)}
-                                   
-                            
-
-                
 
                             </div>
                         </div>
@@ -92,11 +87,11 @@ function Workplace() {
                     </div>
 
                    
-                </div>
+                
 
 
             </div>
-        {/* </body> */}
+        
         </>
     )
 

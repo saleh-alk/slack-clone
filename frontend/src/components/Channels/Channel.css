@@ -625,7 +625,6 @@ a{
 
 .people-stuff div{
     margin-left: 10px;
-    border: 1px solid gray;
     border-radius: 5px;
     padding: 2px;
 }
@@ -660,22 +659,32 @@ a{
 }
 
 .people-stuff .fa-user{
-    width: 20px;
+    width: 30px;
     padding: 4px;
+    padding-left: 8px;
     cursor: pointer;
     background-color:aliceblue;
     border: 1px solid aliceblue;
 }
 
 .people-stuff .fa-user-plus{
-        width: 20px;
-        padding: 4px;
+    
+        padding: 6px;
+        width: 30px;
         cursor: pointer;
         background-color: aliceblue;
-        border: 1px solid aliceblue;
+       
 
 }
 
 .workplace-button{
     cursor: pointer;
+}
+
+.add-people-form{
+    margin-left: 50px;
+}
+
+ .add-people-form button{
+    margin-left: 140px;
 }

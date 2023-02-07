@@ -39,7 +39,7 @@ function ChatBoxHeader() {
             <div>
             <i class="fa-solid fa-user-plus" onClick={() => setSubscriptionShow(true)}></i>
               
-            <SubscriptionModal onClose={() => setSubscriptionShow(false)} showSubscription={showSubscription} />
+            <SubscriptionModal  onClose={() => setSubscriptionShow(false)} showSubscription={showSubscription} />
             </div>
           
 

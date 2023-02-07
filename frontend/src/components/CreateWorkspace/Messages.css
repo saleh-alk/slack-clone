@@ -154,19 +154,17 @@ html {
     grid-column-end: p-workspace__channel_sidebar;
 }
 
-form{
-    display: flex;
-    
-    flex-direction: column;
-    align-items: center;
-    margin-left: 50px ;
-    margin-top: 50px;
+.create-workplace-form{
+  margin-top: 200px;
+  margin-right: 180px;
+  
 
 }
 
 .form-for-create-workplace{
-    margin-left: 250px;
-    margin-top: 350px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }
 
 input[type='text'] {
@@ -177,4 +175,8 @@ input[type='text'] {
 
 .fa-paper-plane-top{
     background-color: white;
+}
+
+.p-client_container{
+
 }

@@ -114,7 +114,7 @@ function LoginFormPage() {
                                 
                             </div>
                             </form>
-                            <form onSubmit={handleDemo}>
+                            <form onSubmit={handleDemo} className="demo-user">
                                 <button type='submit'>Demo User</button>
                             </form>
                             </div>
