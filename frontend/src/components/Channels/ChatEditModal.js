@@ -37,7 +37,7 @@ const ChatEditModal = props => {
                     <div className='edit-name'>Channel Name</div>
                     <div onClick={props.onClose} className="close-modal"><i class="fa-solid fa-x"></i></div>
                 </div>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className='add-channel-modal-form'>
                     <label> 
                         <input
                             type="text"
