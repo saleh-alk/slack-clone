@@ -688,3 +688,12 @@ a{
  .add-people-form button{
     margin-left: 140px;
 }
+
+.add-channel-modal-form{
+    margin-left: 50px;
+    margin-top: 80px;
+}
+
+.add-channel-modal-form button{
+    margin-left: 140px;
+}
