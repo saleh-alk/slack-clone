@@ -1,14 +1,22 @@
 import React from 'react'
 import './Splash.css';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import slackLogo from '../LoginFormPage/icon.png'
 import slackDisplay from './splashDisplay.png'
 import airbnb from './Airbnb.png'
 import nasa from './nasa.png'
 import uber from './uber.png'
 import target from './target.png'
+import { useSelector } from 'react-redux';
 
 function Splash() {
+    const sessionUser = useSelector(state => state.session.user);
+    
+    
+
+    if (sessionUser) return <Redirect to={"/workplace"} />
+
+
   return (
     <>
     <div className='body-of-splash'>
