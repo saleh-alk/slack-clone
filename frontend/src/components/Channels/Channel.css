@@ -675,3 +675,7 @@ a{
         border: 1px solid aliceblue;
 
 }
+
+.workplace-button{
+    cursor: pointer;
+}
