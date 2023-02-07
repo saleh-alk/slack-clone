@@ -265,6 +265,7 @@ hr {
 
 .center-col{
     display: flex;
+    margin-top: 100px;
 }
 
 .icon-name-header{
@@ -279,4 +280,18 @@ hr {
 
 .p-workspace_info__icon{
     margin-left: 10px;
+}
+
+.get_started_app_root{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.workplace-box{
+    margin-left: 50px;
+}
+
+.p-create_workspace_banner{
+    margin-left: 50px;
 }
