@@ -14,3 +14,8 @@ Another challenge I faced was creating and deleting the channels. I had issues t
 # Technologies
 
 For my message model I implemented action cables to broadcast the it's' data, so whenever the user sends a message, it displays the body of the message without having to refresh from both sides. I also used redis to host websockets on the live server. I used rails for the backend and React.js for the frontend.
+
+# Future Features
+
+Add direct messages to send private messages to a certain user. Group messaging, so people only within that group can
+see those messages.
