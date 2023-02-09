@@ -44,7 +44,8 @@ function CreateWorkplace(){
                 
             })
             
-        setTimeout(history.push("/workplace"), 3000);
+        setTimeout("", 120000);
+        history.push("/workplace")
 
     }
 

@@ -7,12 +7,17 @@ import slackLogo from '../LoginFormPage/icon.png'
 // import slackLogo from '../LoginFormPage/slack-logo.png'
 import arrow from '../LoginFormPage/arrow.png'
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import * as workplaceActions from '../../store/workplace';
 
 import './Workplace.css';
 import { clearMessage } from '../../store/messages';
 
 
 function WorkplaceDetail(props) {
+
+    const sessionUser = useSelector(state => state.session.user);
+
+
     const dispatch = useDispatch()
     const history = useHistory()
 
@@ -36,9 +41,12 @@ function WorkplaceDetail(props) {
         } 
     }
 
+    
+
     const deleteClick = () => {
         if(props.workplace.id){
             dispatch(currentWorkplaceActions.destroyWorkplace(props.workplace.id))
+            
         }
     }
 

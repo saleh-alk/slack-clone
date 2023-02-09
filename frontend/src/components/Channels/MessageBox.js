@@ -74,7 +74,12 @@ function MessageBox() {
                     placeholder={'Message'}
                     onChange={(e) => setBody(e.target.value)}
                      />
-                  <button type="submit" className='send-message'><i class="fa-regular fa-paper-plane"></i></button>
+                     <div className='bottom-message'>
+                        <div></div>
+                        <div className='send-message-button'>
+                          <button type="submit" className='send-message'><i class="fa-sharp fa-solid fa-paper-plane"></i></button>
+                        </div>
+                     </div>
 
             </form>
         </div>
