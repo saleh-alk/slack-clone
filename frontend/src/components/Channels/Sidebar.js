@@ -18,7 +18,8 @@ function Sidebar() {
     const channels = useSelector(state => state.channel.channels)
     const {workplaceId, channelId} = useParams()
     const [show, setShow] = useState(false)
-
+    const [isActive, setIsActive] = useState(false)
+   
     
     const [showSubscription, setSubscriptionShow] = useState(false)
 
@@ -39,6 +40,11 @@ function Sidebar() {
         e.preventDefault()
         history.push('/workplace')
 
+    }
+
+    const changeClass = (e) => {
+        e.preventDefault()
+        setIsActive(!isActive)
     }
    
 
@@ -70,14 +76,14 @@ function Sidebar() {
 
             </div>
             <div className="side-channels">
-                <div className="side-channel-list">
+                <div className="side-channel-list" >
                     
                     
                           {channels ? Object.values(channels).map(({ id, name, isPrivate, ownerId }) => (
-                              <div key={id}>
-                                  <Link className="channel-links" to={currentUserId ? `/${workplaceId}/channels/${id}` : '/login'}>
+                              <div className={channelId == id ? "selected-channel" : "channel-links"} key={id}>
+                                  <div classname="stuff"> <Link className={channelId == id ? "selected-channel" : "channel-links"} to={currentUserId ? `/${workplaceId}/channels/${id}` : '/login'}>
                                       <i class="fa-solid fa-hashtag"></i>   {name}
-                                  </Link>
+                                  </Link></div>
                                   
                               </div>
                                
