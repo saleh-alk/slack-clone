@@ -25,14 +25,16 @@ function Message(props) {
     
         <div className='message-sent'>
 
+          <div>
             <div className='message-rec'>
-              <div className='message-sent-username'><strong>{props.message.user} </strong></div>
-              <div className='sent-time'>   {convertDate(props.message.createdAt)}</div>
-          </div>
+                <div className='message-sent-username'><strong>{props.message.user} </strong></div>
+                <div className='sent-time'>   {convertDate(props.message.createdAt)}</div>
+            </div>
             <div className='body-text'>{props.message.body}</div>
+          </div>
             
 
-      <div className='edit-delete'><div className='delete-message-button' onClick={deleteMessage}><i class="fa-solid fa-trash"></i></div></div>
+          <div className='edit-delete'><div className='delete-message-button' onClick={deleteMessage}><i class="fa-solid fa-trash"></i></div></div>
       
         </div>
   

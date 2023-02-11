@@ -84,6 +84,7 @@ html {
 }
 
 .p-workspace-layout {
+    background: #350d36;
     display: grid;
     position: relative;
 }

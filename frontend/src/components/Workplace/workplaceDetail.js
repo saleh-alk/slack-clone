@@ -35,7 +35,7 @@ function WorkplaceDetail(props) {
             
         })
         if(props.workplace.id){
-            history.push(`/${props.workplace.id}/channels/${props.workplace.firstChannel}`)
+            history.push(`/messaging/${props.workplace.id}/channels/${props.workplace.firstChannel}`)
         }
         
         } 

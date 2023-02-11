@@ -17,6 +17,7 @@ import MessageBox from './components/Channels/MessageBox';
 import ChatMessages from './components/Channels/ChatMessages';
 import ChannelModal from './components/Channels/ChannelModal';
 import JoinWorkplace from './components/JoinWorkplace';
+import Messaging from './components/Messaging/Messaging';
 
 function App() {
   const currentUser = useSelector(state => state.session.user);
@@ -36,6 +37,10 @@ function App() {
         </Route>
         <Route path="/workplace">
             <Workplace />
+        </Route>
+
+        <Route path="/messaging/:workplaceId/channels/:channelId">
+            <Messaging />
         </Route>
 
         <Route path="/:workplaceId/channels/:channelId">

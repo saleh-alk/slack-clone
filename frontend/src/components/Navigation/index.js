@@ -4,13 +4,13 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 //import './Navigation.css';
 
-function Navigation() {
+const Navigation = props => {
     const sessionUser = useSelector(state => state.session.user);
 
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
-            <ProfileButton  user={sessionUser} />
+            <ProfileButton  user={sessionUser}  />
         );
     } else {
         sessionLinks = (
