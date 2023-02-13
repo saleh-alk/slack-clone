@@ -37,6 +37,12 @@ function Messaging() {
 
     if (!sessionUser) { <Redirect to={"./login"} /> }
 
+  const handleWorkplace = (e) => {
+    e.preventDefault()
+    history.push('/workplace')
+
+  }
+
 
 
     useEffect(() => {
@@ -73,7 +79,7 @@ function Messaging() {
         <div className='messaging-content'>
                   
             <div className='sidebar-messaging'>
-                <div className='workspace-name-messaging'>
+            <div className='workspace-name-messaging' onClick={handleWorkplace}>
                       {workplace ? workplace.name : <></>}
                 </div>
 

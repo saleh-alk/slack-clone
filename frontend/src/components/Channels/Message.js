@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { destroyMessage, removeMessage } from '../../store/messages';
 import * as sessionActions from '../../store/session';
+import  profileImage  from './profileImg.png'
 
 
 function Message(props) {
@@ -27,10 +28,14 @@ function Message(props) {
 
           <div>
             <div className='message-rec'>
-                <div className='message-sent-username'><strong>{props.message.user} </strong></div>
+          <div className='profileImg'><i class="fa-solid fa-user"></i></div>
+                <div className='mesg-info'>
+                  <div className='message-sent-username'><strong>{props.message.user} </strong></div>
+                  <div className='body-text'>{props.message.body}</div>
+                 </div>
                 <div className='sent-time'>   {convertDate(props.message.createdAt)}</div>
             </div>
-            <div className='body-text'>{props.message.body}</div>
+            
           </div>
             
 

@@ -328,7 +328,7 @@ a{
     display: flex;
     padding: 0 25px 25px 0px;
     width: 135vh;
-    position: fixed;
+    /* position: fixed; */
     
 }
 
@@ -755,4 +755,14 @@ a{
         border-radius: 4px;
         display: flex;
         opacity: .3;
+}
+
+
+.profileImg .fa-user{
+    color: #F3FBF8;
+    background-color: #2AAD75;
+    width: 30px;
+    height: 30px;
+    padding-left: 8px;
+    padding-top: 6px;
 }
