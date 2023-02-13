@@ -3,17 +3,20 @@
     height: 100%;
 }
 
-.everything{
-    position: relative;
-}
+
 
 .messaging-main{
    
     display: flex;
     flex-direction: column;
-    position: relative;
     
     
+    
+}
+.message-input-messaging{
+    position: fixed;
+    width: 100%;
+    height: 20%;
 }
 
 .top-header-messaging{
@@ -23,13 +26,19 @@
     display: flex;
     flex-direction: column;
     align-items: self-end;
+   
+}
+
+.profile-button-messaging{
+    margin-right: 20px;
+   
 }
 
 .messaging-content{
     display: flex;
     flex-direction: row;
-    position: relative;
-    z-index: 9;
+   
+    
     top: 10;
 }
 
@@ -69,7 +78,8 @@
 }
 
 .chatbox-messaging{
-    width: 135vh;
+    width: 100%;
+    
 }
 
 .chatbox-header-messaging{
@@ -79,7 +89,7 @@
     padding-top: 20px;
     padding-bottom: 2%;
     border-bottom: 1px solid black;
-    width: 168vh;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -118,3 +128,18 @@
 }
 
 
+.prfile-content-messaging{
+    display: inline-block;
+    position: absolute;
+    top: 55px;
+    right: 10px;
+   
+}
+
+.profile-main-box{
+    display: flex;
+    position: absolute;
+        top: 55px;
+        right: 10px;
+
+}

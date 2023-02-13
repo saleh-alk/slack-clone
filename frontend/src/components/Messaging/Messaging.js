@@ -60,7 +60,11 @@ function Messaging() {
                     {/* <Navigation onClose={() => setShowProfile(false)} profile={showProfile}/> */}
                     <div className="nav-login-button" onClick={() => setShowProfile(true)} >
                     <ProfileButton user={sessionUser} />
+                
+                  <ProfileInfo user={sessionUser} showProfile={showProfile} onClose={() => setShowProfile(false)} />
+               
                 </div>
+               
                       
                     
                   </div>
@@ -105,7 +109,9 @@ function Messaging() {
                     </div>
 
             </div>
+          
             <div className='chatbox-messaging'>
+            
                     <div className='chatbox-header-messaging' onClick={() => setDetailShow(true)}>
                          {channels && Object.values(channels)?.map((channel) => channelId == channel.id && <div className='channel-header-message'><strong><i class="fa-solid fa-hashtag"></i> {channel.name}  </strong><i class="fa-solid fa-angle-down"></i></div>)}  
                          <div>
@@ -121,9 +127,11 @@ function Messaging() {
 
                           </div>
                       </div>  
+              
                     </div>
 
                   <ChannelDetailModal onClose={() => setDetailShow(false)} show={detailShow} />
+            
 
                     <div className='messages-messaging'>
                         <div className='message-receipt-messaging'>
@@ -137,14 +145,10 @@ function Messaging() {
                     </div>
                     <div className='message-input-messaging'>
                       <MessageBox />
-
                     </div>
-
-
-
                     
             </div>
-                  <ProfileInfo user={sessionUser} showProfile={showProfile} onClose={()=> setShowProfile(false)} />
+                  {/* <ProfileInfo user={sessionUser} showProfile={showProfile} onClose={()=> setShowProfile(false)} /> */}
 
 
             

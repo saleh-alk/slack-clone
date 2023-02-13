@@ -747,6 +747,7 @@ a{
     display: flex;
     justify-content: space-between;
     padding: 5px, 10px, 5px;
+    height: 100px;
 }
 
 .send-message-button{
