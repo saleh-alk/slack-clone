@@ -29,6 +29,7 @@ function ProfileButton({ user }) {
         e.preventDefault();
         dispatch(sessionActions.logout());
         history.push("/login")
+        window.location.reload();
 
     };
 

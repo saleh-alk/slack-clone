@@ -19,3 +19,72 @@ For my message model I implemented action cables to broadcast the it's' data, so
 
 Add direct messages to send private messages to a certain user. Group messaging, so people only within that group can
 see those messages.
+
+# Codes
+
+## Messages Store
+
+```javascript
+
+export const createMessage = (message) => {
+    const { sessionUserId, channel, body, isPrivate } = message
+    csrfApiFetch('/api/messages', {
+        method: 'POST',
+        body: JSON.stringify({
+            user_id: sessionUserId,
+            channel_id: channel,
+            body,
+            private: isPrivate
+        })
+    })
+};
+
+export const fetchMessages = (channelId) => async (dispatch) => {
+    const res = await csrfApiFetch(`/api/messages?channelId=${channelId}`)
+
+    if (res.ok) {
+        let messages = await res.json()
+        dispatch(receiveMessages(messages))
+        return messages
+
+    }
+}
+```
+
+## User Auth Store
+```javascript
+    const storeCSRFToken = response => {
+    const csrfToken = response.headers.get("X-CSRF-Token");
+    if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
+}
+
+const storeCurrentUser = user => {
+    if (user) sessionStorage.setItem("currentUser", JSON.stringify(user));
+    else sessionStorage.removeItem("currentUser");
+}
+
+export const login = ({ credential, password }) => async dispatch => {
+    const response = await csrfFetch("/api/session", {
+        method: "POST",
+        body: JSON.stringify({ credential, password })
+    });
+    const data = await response.json();
+    storeCurrentUser(data.user);
+    dispatch(setCurrentUser(data.user));
+    return response;
+};
+
+export const restoreSession = () => async dispatch => {
+    const response = await csrfFetch("/api/session");
+    storeCSRFToken(response);
+    const data = await response.json();
+    storeCurrentUser(data.user);
+    dispatch(setCurrentUser(data.user));
+    return response;
+};
+
+
+```
+
+
+

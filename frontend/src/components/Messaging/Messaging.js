@@ -128,10 +128,10 @@ function Messaging() {
                               <i class="fa-solid fa-user" onClick={() => setDetailShow(true)}></i>
                           </div>
 
-                          <div>
+                          {/* <div>
                               <i class="fa-solid fa-user-plus" onClick={() => setSubscriptionShow(true)}></i>
 
-                          </div>
+                          </div> */}
                       </div>  
               
                     </div>

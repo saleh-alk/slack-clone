@@ -21,15 +21,16 @@ function Workplace() {
     const workplaces = useSelector(state => state.workplace)
    
    
-
+    
     useEffect(() => {
+        
         dispatch(sessionActions.receiveUser())
         dispatch(workplaceActions.fetchWorkplaces(sessionUser.id))
         
     }, [])
 
 
-
+    
     if(!sessionUser) return <Redirect to={"/login"} />
     
     return  (
