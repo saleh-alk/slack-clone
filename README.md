@@ -18,7 +18,6 @@ Another challenge I faced was creating and deleting the channels. I had issues t
 
 <p align="center">
 <img src="./editdelete.png" alt="Ruby" height="350" style="vertical-align:top; margin:4px">
-
 </p>
 
 # Technologies
