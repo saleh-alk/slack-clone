@@ -184,7 +184,7 @@ DEPENDENCIES
   byebug
   faker
   jbuilder
-  pg (~> 1.1)
+  pg (~> 1.1.0)
   pry-rails
   puma (~> 5.0)
   rails (~> 7.0.4)
