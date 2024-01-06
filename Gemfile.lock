@@ -184,7 +184,7 @@ DEPENDENCIES
   byebug
   faker
   jbuilder
-  pg (~> 1.1.0)
+  pg (~> 1.1)
   pry-rails
   puma (~> 5.0)
   rails (~> 7.0.4)
@@ -192,7 +192,7 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
-   ruby 2.7.0
+   ruby 3.1.1p18
 
 BUNDLED WITH
    2.3.24
