@@ -4,7 +4,7 @@
 A clone project of slack. Uses Action Cable to broadcast messages. Allows users working in the same workplace to communicate with each other via action cable.
 
 # Link to live site
-https://khakis.onrender.com
+https://khakis-igty.onrender.com
 
 # Features
 One feature I that was new to me was using action cable to the messenger app. Implementing that was difficult at first, but after understanding how to access the methods from the backend I felt like it was simpler to know how to access the database. I also learned how to broadcast the messages so that the messages show without refreshing.
